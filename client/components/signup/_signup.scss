@@ -1,7 +1,7 @@
 @import '../../sass/utils/variables';
 @import '../../sass/utils/mixins';
 
-.signin-panel {
+.signup-panel {
     width: 70%;
     margin: 10px auto 0;
 
@@ -11,16 +11,16 @@
         font-size: 1.5em;
     }
 
-    .signin-loader {
+    .signup-loader {
         margin: 0 auto 50px;
     }
 
-    .signin-form {
+    .signup-form {
         @extend #auth-form;
     }
 }
 @media screen and (max-width: 850px) {
-    .signin-panel {
+    .signup-panel {
         width: 90%;
     }
 }
