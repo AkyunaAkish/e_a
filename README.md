@@ -1,34 +1,37 @@
-# Space Cadevs
+# Blog Website
 
-## Collective Tech
+## Technologies Used
 
-Setup Instructions:
-
-```
-fork/clone
-
-$ npm i
-
-$ touch .env
-
-generate a secret:
-$ echo SECRET=$(node -e "require('crypto').randomBytes(48, function(ex, buf) { console.log(buf.toString('hex')) });") >> .env
-
-add to your .env file according to the .env.example file
-
-$ createdb spacecadevs
-
-$ knex migrate:latest
-```
-
-To Run Development Environment:
+#### Front-End
 
 ```
-in one tab of your terminal:
-$ npm run dev
+HTML
+CSS/SCSS
+AngularJS 1.6.x
+Angular ui-router
+Angular ui bootstrap
+Angular storage
+JSON Web Tokens
+Angular messages
+ES6
+Babel
+NodeJS
+WebpackJS
+```
 
-in another tab of your terminal:
-$ nodemon
+#### Back-End
 
-go to localhost:8080
+```
+NodeJS
+ExpressJS
+KnexJS
+PostgreSQL
+Bcrypt
+JSON Web Tokens
+```
+
+#### Deployment
+
+```
+Heroku
 ```
