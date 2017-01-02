@@ -1,0 +1,21 @@
+<div class='panel panel-default create-post-panel'>
+    <div class='panel-heading text-center'>
+        <button type='button' class='btn btn-lg' ng-click='vm.addPostComponent("header")'>
+            Header
+        </button>
+        <button type='button' class='btn btn-lg' ng-click='vm.addPostComponent("text")'>
+            Text
+        </button>
+        <button type='button' class='btn btn-lg' ng-click='vm.addPostComponent("link")'>
+            Link
+        </button>
+        <button type='button' class='btn btn-lg' ng-click='vm.addPostComponent("image")'>
+            Image
+        </button>
+    </div>
+    <div class='panel-body'>
+        <div ng-repeat='c in vm.post'>
+            <div compile ng-bind-html='vm.trustHTML(c.template)'></div>
+        </div>
+    </div>
+</div>

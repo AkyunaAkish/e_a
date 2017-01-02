@@ -1,0 +1,74 @@
+@import '../../sass/utils/variables';
+@import '../../sass/utils/mixins';
+
+.navbar {
+    background: $purple;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+
+    #navbar-img {
+        height: 50px;
+        margin-right: 20px;
+        margin-left: 20px;
+        cursor: pointer;
+    }
+
+    .navbar-nav {
+        li {
+            cursor: pointer;
+
+            a {
+                color: $sky;
+                font-size: 1.5em;
+
+                &:focus {
+                    color: white;
+                }
+
+                &:hover {
+                    color: white;
+                    font-size: 1.7em;
+                }
+            }
+
+            .activeAnchor {
+                color: white;
+            }
+
+            &:hover {
+                border-right: 1px solid $sky;
+                border-left: 1px solid $sky;
+            }
+        }
+    }
+
+    .navbar-toggle {
+        background: $dark;
+        border: none;
+
+        .icon-bar {
+            background: $sky;
+        }
+
+        &:focus {
+            background: $dark;
+        }
+
+        &:hover {
+            background: $sky;
+
+            .icon-bar {
+                background: $purple;
+            }
+        }
+    }
+
+    .navbar-collapse.in.collapse {
+        border: none;
+
+        li {
+            text-align: center;
+        }
+    }
+}

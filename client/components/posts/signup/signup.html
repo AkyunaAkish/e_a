@@ -1,0 +1,75 @@
+<div class='panel panel-default signup-panel' ng-if='!vm.session'>
+    <div class='panel-heading text-center'>Sign Up</div>
+    <div class='panel-body'>
+        <section class='signup-section' ng-if='!vm.signingUpUser'>
+            <form ng-submit='vm.signup()' novalidate='novalidate'>
+                <div class='signup-form'>
+                    <ng-form name='signupForm'>
+                        <div class='input-container'>
+                            <div class='form-group'>
+                                <label for='username'>Username
+                                    <ng-messages for='signupForm.username.$error' ng-show='signupForm.username.$dirty'>
+                                        <ng-message when='required'>
+                                            Please enter a username
+                                        </ng-message>
+                                    </ng-messages>
+                                    <input type='text' class='form-control' placeholder='Username' name='username' ng-model='vm.signupObj.username' required/>
+                                </label>
+                            </div>
+                            <div class='form-group'>
+                                <label for='email'>Email
+                                    <ng-messages for='signupForm.email.$error' ng-show='signupForm.email.$dirty'>
+                                        <ng-message when='required'>
+                                            Please enter your email
+                                        </ng-message>
+                                        <ng-message when='email'>
+                                            Please enter a valid email
+                                        </ng-message>
+                                    </ng-messages>
+                                    <input type='email' class='form-control' placeholder='Email' name='email' ng-model='vm.signupObj.email' required/>
+                                </label>
+                            </div>
+                            <div class='form-group'>
+                                <label for='password'>Password
+                                    <ng-messages for='signupForm.password.$error' ng-show='signupForm.password.$dirty'>
+                                        <ng-message when='required'>
+                                            Please enter your password
+                                        </ng-message>
+                                    </ng-messages>
+                                    <input type='password' class='form-control' placeholder='Password' name='password' ng-model='vm.signupObj.password' required/>
+                                </label>
+                            </div>
+                            <div class='form-group'>
+                                <label for='confirmPassword'>Confirm password
+                                    <ng-messages for='signupForm.confirmPassword.$error' ng-show='signupForm.confirmPassword.$dirty'>
+                                        <ng-message when='required'>
+                                            Please enter your password again
+                                        </ng-message>
+                                        <ng-message when='pattern'>
+                                            Passwords must match
+                                        </ng-message>
+                                    </ng-messages>
+                                    <input type='password' class='form-control' ng-pattern='{{vm.signupObj.password}}' placeholder='Confirm password' name='confirmPassword' ng-model='vm.signupObj.confirmPassword' required/>
+                                </label>
+                            </div>
+
+                            <div class='form-footer text-center'>
+                                <button class='btn' ng-if='!vm.signingUpUser' type='submit' ng-disabled='signupForm.$invalid'>
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </ng-form>
+                </div>
+            </form>
+        </section>
+        <div ng-if='vm.signingUpUser'>
+            <div class='loader signup-loader'></div>
+            <div class='text-center'>
+                <h5 class='loading-text'>
+                    Signing you up...
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>

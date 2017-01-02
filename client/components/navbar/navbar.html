@@ -1,0 +1,30 @@
+<nav class='navbar navbar-default' role='navigation'>
+    <div class='navbar-header'>
+        <button type='button' class='navbar-toggle' ng-init='isNavCollapsed=true' ng-click='isNavCollapsed = !isNavCollapsed'>
+            <span class='sr-only'>Toggle navigation</span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+        </button>
+        <div ui-sref='layout.posts'><img id='navbar-img' src='/images/ElenaAkishLotus.png'/></div>
+    </div>
+    <div class='collapse navbar-collapse' uib-collapse='isNavCollapsed'>
+        <ul class='nav navbar-nav'>
+            <li>
+                <a ui-sref-active='activeAnchor' ui-sref='layout.posts'>Posts</a>
+            </li>
+            <li ng-if='!vm.session'>
+                <a ui-sref-active='activeAnchor' ui-sref='layout.signup'>Sign Up</a>
+            </li>
+            <li ng-if='!vm.session'>
+                <a ui-sref-active='activeAnchor' ui-sref='layout.signin'>Sign In</a>
+            </li>
+            <li ng-if='vm.session && vm.$localStorage.session.user.username == "Elena Akish"'>
+                <a ui-sref-active='activeAnchor' ui-sref='layout.createPost'>Create Post</a>
+            </li>
+            <li ng-if='vm.session' ng-click='vm.signout()'>
+                <a>Sign Out</a>
+            </li>
+        </ul>
+    </div>
+</nav>

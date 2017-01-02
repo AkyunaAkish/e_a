@@ -1,0 +1,27 @@
+@import '../../sass/utils/variables';
+@import '../../sass/utils/mixins';
+
+.signup-panel {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 10px;
+
+    .panel-heading {
+        background: $dark;
+        color: $sky;
+        font-size: 1.5em;
+    }
+
+    .signup-loader {
+        margin: 0 auto 50px;
+    }
+
+    .signup-form {
+        @extend #auth-form;
+    }
+}
+@media screen and (max-width: 850px) {
+    .signup-panel {
+        width: 90%;
+    }
+}

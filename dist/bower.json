@@ -1,0 +1,22 @@
+{
+  "name": "spacecadevs",
+  "homepage": "https://github.com/DownlinkDesign/spacecadevs",
+  "authors": [
+    "Akyuna Akish <akyunaakish@gmail.com> Max Sturges <max.r.sturges@gmail.com>"
+  ],
+  "description": "Collective Tech Blogs",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  }
+}

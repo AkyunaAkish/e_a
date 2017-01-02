@@ -1,0 +1,56 @@
+{
+  "name": "spacecadevs",
+  "version": "1.0.0",
+  "description": "Collective Tech",
+  "main": "./bin/www",
+  "scripts": {
+    "start": "NODE_ENV=production node ./bin/www",
+    "dev": "NODE_ENV=development node_modules/.bin/webpack-dev-server --inline --hot",
+    "build": "NODE_ENV=production node_modules/.bin/webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DownlinkDesign/spacecadevs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DownlinkDesign/spacecadevs/issues"
+  },
+  "homepage": "https://github.com/DownlinkDesign/spacecadevs#readme",
+  "devDependencies": {
+    "angular": "^1.6.1",
+    "angular-bootstrap-npm": "^0.14.3",
+    "angular-messages": "^1.6.1",
+    "angular-ui-router": "^0.3.2",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-1": "^6.16.0",
+    "css-loader": "^0.26.1",
+    "ng-annotate-webpack-plugin": "^0.1.3",
+    "ngstorage": "^0.3.11",
+    "node-sass": "^4.1.1",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.1",
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.1",
+    "debug": "^2.6.0",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.2.1",
+    "knex": "^0.12.6",
+    "morgan": "^1.7.0",
+    "pg": "^6.1.2",
+    "socket.io": "^1.7.2"
+  }
+}

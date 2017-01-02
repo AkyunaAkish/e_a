@@ -1,0 +1,52 @@
+<div class='panel panel-default signin-panel' ng-if='!vm.session'>
+    <div class='panel-heading text-center'>Sign In</div>
+    <div class='panel-body'>
+        <section class='signin-section' ng-if='!vm.signingInUser'>
+            <form ng-submit='vm.signin()' novalidate='novalidate'>
+                <div class='signin-form'>
+                    <ng-form name='signinForm'>
+                        <div class='input-container'>
+                            <div class='form-group'>
+                                <label for='email'>Email
+                                    <ng-messages for='signinForm.email.$error' ng-show='signinForm.email.$dirty'>
+                                        <ng-message when='required'>
+                                            Please enter your email
+                                        </ng-message>
+                                        <ng-message when='email'>
+                                            Please enter a valid email
+                                        </ng-message>
+                                    </ng-messages>
+                                    <input type='email' class='form-control' placeholder='Email' name='email' ng-model='vm.signinObj.email' required/>
+                                </label>
+                            </div>
+                            <div class='form-group'>
+                                <label for='password'>Password
+                                    <ng-messages for='signinForm.password.$error' ng-show='signinForm.password.$dirty'>
+                                        <ng-message when='required'>
+                                            Please enter your password
+                                        </ng-message>
+                                    </ng-messages>
+                                    <input type='password' class='form-control' placeholder='Password' name='password' ng-model='vm.signinObj.password' required/>
+                                </label>
+                            </div>
+
+                            <div class='form-footer text-center'>
+                                <button class='btn' ng-if='!vm.signingInUser' type='submit' ng-disabled='signinForm.$invalid'>
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </ng-form>
+                </div>
+            </form>
+        </section>
+        <div ng-if='vm.signingInUser'>
+            <div class='loader signin-loader'></div>
+            <div class='text-center'>
+                <h5 class='loading-text'>
+                    Signing you in...
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>
