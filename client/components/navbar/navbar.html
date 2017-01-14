@@ -11,19 +11,19 @@
     <div class='collapse navbar-collapse' uib-collapse='isNavCollapsed'>
         <ul class='nav navbar-nav'>
             <li>
-                <a ui-sref-active='activeAnchor' ui-sref='layout.posts'>Posts</a>
+                <a ui-sref-active='activeAnchor' ui-sref='layout.posts' blur>Posts</a>
             </li>
             <li ng-if='!vm.session'>
-                <a ui-sref-active='activeAnchor' ui-sref='layout.signup'>Sign Up</a>
+                <a ui-sref-active='activeAnchor' ui-sref='layout.signup' blur>Sign Up</a>
             </li>
             <li ng-if='!vm.session'>
-                <a ui-sref-active='activeAnchor' ui-sref='layout.signin'>Sign In</a>
+                <a ui-sref-active='activeAnchor' ui-sref='layout.signin' blur>Sign In</a>
             </li>
             <li ng-if='vm.session && vm.$localStorage.session.user.username == "Elena Akish"'>
-                <a ui-sref-active='activeAnchor' ui-sref='layout.createPost'>Create Post</a>
+                <a ui-sref-active='activeAnchor' ui-sref='layout.createPost' blur>Create Post</a>
             </li>
             <li ng-if='vm.session' ng-click='vm.signout()'>
-                <a>Sign Out</a>
+                <a blur>Sign Out</a>
             </li>
         </ul>
     </div>

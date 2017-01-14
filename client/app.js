@@ -11,6 +11,7 @@ import signupDirective from './components/signup/signup.directive.js';
 import signinDirective from './components/signin/signin.directive.js';
 import createPostDirective from './components/createPost/createPost.directive.js';
 import compileDirective from './utils/directives/compile.util.js';
+import blurDirective from './utils/directives/blur.util.js';
 
 import authService from './services/auth.service.js';
 import createPostService from './services/createPost.service.js';
@@ -37,6 +38,7 @@ angular.module('ElenaAkish', [
     .service('signupService', signupService)
     .service('signinService', signinService)
     .directive('compile', compileDirective)
+    .directive('blur', blurDirective)
     .directive('layoutDirective', layoutDirective)
     .directive('navbarDirective', navbarDirective)
     .directive('postsDirective', postsDirective)
