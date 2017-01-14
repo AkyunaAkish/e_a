@@ -13,12 +13,13 @@ module.exports = (req, res) => {
             const formattedUsername = req.body.username.split(' ').map((curr) => {
                 return curr[0].toUpperCase() + curr.slice(1).toLowerCase();
             }).join(' ');
-            
+
             knex('users')
                 .insert({
                     username: formattedUsername,
                     email: req.body.email,
-                    password: password_hash
+                    password: password_hash,
+                    admin: formattedUsername === 'Elena Akish' ? true : false
                 }).returning('*')
                 .then((user) => {
                     resolve({

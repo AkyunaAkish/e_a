@@ -21,6 +21,7 @@ class NavbarController {
 
     signout() {
         this.authService.clearSession();
+        this.$rootScope.$emit('closeNavbarToggle', true);
         this.$state.go('layout.posts');
     }
 };

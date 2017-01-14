@@ -1,16 +1,31 @@
 const verifyAdmin = require('../actions/verifyAdmin.js');
+const retrieveUser = require('../actions/retrieveUser.js');
 
 module.exports = (req, res) => {
-    verifyAdmin(req, res, req.body.user, req.body.token)
-        .then((verifyRes) => {
-            if (verifyRes.success) {
-                res.json({
-                    success: verifyRes.success
-                });
+    retrieveUser(req.body.user.email)
+        .then((user) => {
+            if (user.success) {
+                verifyAdmin(req, res, user.success, req.body.token)
+                    .then((verifyRes) => {
+                        if (verifyRes.success) {
+                            res.json({
+                                success: verifyRes.success
+                            });
+                        } else {
+                            res.json({
+                                error: 'Not admin',
+                                reason: verifyRes.error || null
+                            });
+                        }
+                    })
+                    .catch((err) => {
+                        res.json({
+                            error: err
+                        });
+                    });
             } else {
                 res.json({
-                    error: 'Not admin',
-                    reason: verifyRes.error || null
+                    error: 'Could not retrieve user for validation of session'
                 });
             }
         })
