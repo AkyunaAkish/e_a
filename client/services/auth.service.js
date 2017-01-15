@@ -52,18 +52,20 @@ class authService {
                                 deferred.resolve(true);
                             })
                             .catch((err) => {
-                                this.session = null;
+                                this.clearSession();
                                 deferred.resolve(false);
                             });
                     } else {
-                        this.session = null;
+                        this.clearSession();
                         deferred.resolve(false);
                     }
                 })
                 .catch((err) => {
+                    this.clearSession();
                     deferred.resolve(false);
                 });
         } else {
+            this.clearSession();
             deferred.resolve(false);
         }
         return deferred.promise;

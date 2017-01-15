@@ -6,7 +6,9 @@ module.exports = (id) => {
     return new Promise((resolve, reject) => {
         const token = jwt.sign({
             id: id
-        }, process.env.SECRET);
+        }, process.env.SECRET, {
+            expiresIn: process.env.SESSION_LIMIT
+        });
 
         if (token) {
             resolve({
