@@ -30,9 +30,19 @@ class SigninController {
                 this.$state.go('layout.posts');
             })
             .catch((err) => {
-                this.signingInUser = false;
-                this.errorService.setAuthError(err.error);
-                this.errorService.openErrorModal();
+                if (err.error) {
+                    this.signingInUser = false;
+                    this.errorService.setAuthError(err.error);
+                    this.errorService.openErrorModal();
+                } else if (!err.data) {
+                    this.signingInUser = false;
+                    this.errorService.setAuthError('Could not connect with server, your internet connection may not be working.');
+                    this.errorService.openErrorModal();
+                } else {
+                    this.signingInUser = false;
+                    this.errorService.setAuthError('Unknown error occurred when attempting to sign you in, please try again.');
+                    this.errorService.openErrorModal();
+                }
             });
     }
 };
