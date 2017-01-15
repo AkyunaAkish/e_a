@@ -18,7 +18,6 @@ class CreatePostController {
         }, (newVal) => {
             this.$localStorage.post = newVal;
             this.authService.refreshToken();
-            console.log('changed post and refreshed token...', this.$localStorage.session);
         }, true);
     }
 
