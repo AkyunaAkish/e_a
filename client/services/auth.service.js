@@ -32,10 +32,15 @@ class authService {
     hasSession() {
         let deferred = this.$q.defer();
         if (this.$localStorage.session &&
-            this.$localStorage.session.user &&
+            typeof this.$localStorage.session === 'object' &&
             this.$localStorage.session.token &&
+            typeof this.$localStorage.session.token === 'string' &&
             this.$localStorage.session.user &&
-            this.$localStorage.session.token) {
+            typeof this.$localStorage.session.user === 'object' &&
+            this.$localStorage.session.user.email &&
+            typeof this.$localStorage.session.user.email === 'string' &&
+            this.$localStorage.session.user.username &&
+            typeof this.$localStorage.session.user.username === 'string') {
             this.$http.post(`${this.HOST}/users/validate-session`, {
                     session: {
                         user: this.$localStorage.session.user,
@@ -95,6 +100,48 @@ class authService {
                 });
         } else {
             deferred.resolve(false);
+        }
+        return deferred.promise;
+    }
+
+    refreshToken() {
+        const deferred = this.$q.defer();
+        if (this.$localStorage.session &&
+            typeof this.$localStorage.session === 'object' &&
+            this.$localStorage.session.token &&
+            typeof this.$localStorage.session.token === 'string' &&
+            this.$localStorage.session.user &&
+            typeof this.$localStorage.session.user === 'object' &&
+            this.$localStorage.session.user.email &&
+            typeof this.$localStorage.session.user.email === 'string' &&
+            this.$localStorage.session.user.username &&
+            typeof this.$localStorage.session.user.username === 'string') {
+            this.$http.post(`${this.HOST}/users/refresh-token`, {
+                    user: this.$localStorage.session.user,
+                    token: this.$localStorage.session.token
+                })
+                .then((res) => {
+                    if (res.data.success) {
+                        this.setSession({
+                                user: res.data.success.user,
+                                token: res.data.success.token
+                            })
+                            .then((setSessionRes) => {
+                                deferred.resolve(true);
+                            })
+                            .catch((err) => {
+                                this.clearSession();
+                                deferred.resolve(false);
+                            });
+                    } else {
+                        this.clearSession();
+                        deferred.resolve(false);
+                    }
+                })
+                .catch((err) => {
+                    this.clearSession();
+                    deferred.resolve(false);
+                });
         }
         return deferred.promise;
     }

@@ -5,7 +5,7 @@ module.exports = (req, res, user, token) => {
     return new Promise((resolve, reject) => {
         try {
             const decoded = jwt.verify(token, process.env.SECRET);
-            if (Number(decoded.id) === Number(user.id) && user.username == process.env.ADMIN) {
+            if (Number(decoded.id) === Number(user.id) && user.username == process.env.ADMIN && user.admin) {
                 resolve({
                     success: token
                 });

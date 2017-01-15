@@ -16,7 +16,7 @@ module.exports = (id) => {
             });
         } else {
             reject({
-                error: 'An error occurred when attempting to sign you up.',
+                error: 'An error occurred, please sign in.',
                 reason: 'Session token could not be created.'
             });
         }

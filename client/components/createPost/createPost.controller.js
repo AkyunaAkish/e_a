@@ -1,9 +1,10 @@
 class CreatePostController {
     /**@ngInject*/
-    constructor($sce, $scope, $localStorage) {
+    constructor($sce, $scope, $localStorage, authService) {
         this.$sce = $sce;
         this.$scope = $scope;
         this.$localStorage = $localStorage;
+        this.authService = authService;
         this.post = [];
         this.changePosition = {};
         this.ind = {};
@@ -16,6 +17,8 @@ class CreatePostController {
             return this.post;
         }, (newVal) => {
             this.$localStorage.post = newVal;
+            this.authService.refreshToken();
+            console.log('changed post and refreshed token...', this.$localStorage.session);
         }, true);
     }
 
@@ -39,12 +42,6 @@ class CreatePostController {
         if (to > this.post.length - 1) {
             alert('Cannot move to that position.');
         } else {
-            if (to >= this.post.length) {
-                let k = to - this.post.length;
-                while ((k--) + 1) {
-                    this.push(undefined);
-                }
-            }
             this.post.splice(to, 0, this.post.splice(from, 1)[0]);
         }
     }

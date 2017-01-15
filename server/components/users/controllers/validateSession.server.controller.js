@@ -8,6 +8,9 @@ module.exports = (req, res) => {
                 verifyToken(req, res, user.success, req.body.session.token)
                     .then((tokenRes) => {
                         if (tokenRes.success) {
+                            delete user.success.id;
+                            delete user.success.created_at;
+                            delete user.success.admin;
                             delete user.success.password;
                             res.json({
                                 success: {

@@ -7,6 +7,7 @@ const compression = require('compression');
 const cors = require('cors');
 
 const users = require('./server/components/users/users.js');
+const posts = require('./server/components/posts/posts.js');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/users', users);
+app.use('/posts', posts);
 
 app.all('*', (req, res, next) => {
     res.sendFile('index.html', {
