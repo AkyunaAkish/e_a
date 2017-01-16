@@ -13,7 +13,7 @@ module.exports = (req, res) => {
         retrieveUser(req.body.user.email)
             .then((user) => {
                 if (user && user.success && user.success.username && user.success.email && user.success.id) {
-                    createToken(user.success.id)
+                    createToken(user.success)
                         .then((token) => {
                             if (token.success) {
                                 res.json({

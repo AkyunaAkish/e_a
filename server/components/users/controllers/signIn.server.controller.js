@@ -10,7 +10,7 @@ module.exports = (req, res) => {
                     verifyPassword(req.body.password, userRes.success.password)
                         .then((verifyRes) => {
                             if (verifyRes.success) {
-                                createToken(userRes.success.id)
+                                createToken(userRes.success)
                                     .then((createTokenRes) => {
                                         if (createTokenRes.success) {
                                             res.json({

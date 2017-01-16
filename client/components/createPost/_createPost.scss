@@ -8,10 +8,48 @@
     .panel-heading {
         background: $dark;
 
-        button {
+        .post-component-btn {
             background: $purple;
             color: $sky;
             margin: 5px;
+
+            &:hover {
+                background: white;
+                color: $purple;
+            }
+        }
+
+        .post-submit-btn {
+            background: white;
+            color: $green;
+            margin: 5px;
+
+            &:hover {
+                background: $green;
+                color: white;
+            }
+        }
+
+        .post-preview-btn {
+            background: white;
+            color: $purple;
+            margin: 5px;
+
+            &:hover {
+                background: $purple;
+                color: white;
+            }
+        }
+
+        .post-tips-btn {
+            background: white;
+            color: $purple;
+            margin: 5px;
+
+            &:hover {
+                background: $purple;
+                color: white;
+            }
         }
     }
 }
@@ -52,13 +90,28 @@
         input,
         textarea {
             width: 80%;
+            max-width: 80%;
             display: block;
             margin: 0 auto;
         }
+    }
+}
 
-        textarea {
-            resize: none;
-        }
+.post-preview-panel {
+    @extend .post-component-panel;
+
+    iframe,
+    img {
+        margin: 0 auto 10px;
+    }
+
+    p {
+        font-size: 1.2em;
+    }
+
+    iframe {
+        width: 70%;
+        height: 400px;
     }
 }
 @media screen and (max-width: 850px) {
@@ -69,6 +122,11 @@
             select {
                 width: 50%;
             }
+        }
+
+        iframe {
+            width: 90%;
+            height: 300px;
         }
     }
 }

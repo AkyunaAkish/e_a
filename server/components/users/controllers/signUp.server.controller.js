@@ -5,7 +5,7 @@ module.exports = (req, res) => {
     createUser(req, res)
         .then((user) => {
             if (user.success && user.success.id) {
-                createToken(user.success.id)
+                createToken(user.success)
                     .then((token) => {
                         res.json({
                             success: {
