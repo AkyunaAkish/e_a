@@ -1,9 +1,17 @@
+import SubmitPostController from '../submitPostModal/submitPostModal.controller.js';
+
 class CreatePostController {
     /**@ngInject*/
-    constructor($sce, $scope, $localStorage, authService) {
+    constructor($sce, $scope, $localStorage, authService, $uibModal, $http, HOST, $rootScope) {
         this.$sce = $sce;
+        this.$http = $http;
+        this.HOST = HOST;
         this.$scope = $scope;
+        this.$rootScope = $rootScope;
+        this.$uibModal = $uibModal;
         this.$localStorage = $localStorage;
+        this.$http = $http;
+        this.HOST = HOST;
         this.authService = authService;
         this.post = {
             title: '',
@@ -184,9 +192,18 @@ class CreatePostController {
         }
     }
 
-    submitPost() {
-        console.log('submit post called POST:', this.post);
-        console.log('submit post called PREVIEW:', this.preview);
+    openSubmitPostModal() {
+        console.log('open submit post modal called');
+        this.$uibModal.open({
+            scope: this.$scope,
+            show: true,
+            template: require('../submitPostModal/submitPostModal.html'),
+            controller: SubmitPostController,
+            controllerAs: 'vm',
+            size: 'lg',
+            backdrop: 'static',
+            keyboard: false
+        });
     }
 
     updatePreview(post) {
@@ -224,6 +241,17 @@ class CreatePostController {
                           ${previewBody}
                       </div>
                   </div>`;
+        this.$localStorage.preview = this.preview;
+    }
+
+    decideThumbnail() {
+        if (this.post.thumbnailWeb) {
+            return this.post.thumbnailWeb;
+        } else if (this.post.thumbnailGoogleDrive) {
+            return `https://docs.google.com/uc?id=${this.post.thumbnailGoogleDrive}`;
+        } else {
+            return '/images/ElenaAkishLotus.png';
+        }
     }
 
 };

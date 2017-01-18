@@ -1,0 +1,16 @@
+<header class='modalHeader'>
+    <h1>Submit Post</h1>
+    <button class='closeModalButton pull-right btn btn-danger' ng-click='vm.closeModal()'>X</button>
+</header>
+
+<section class='modalFormSection'>
+    <form name='form' ng-submit='vm.submitPost()' novalidate>
+        <label for='amount'>Password
+            <input class='form-control' type='password' placeholder='Password' ng-model='vm.password' required/>
+        </label>
+        <div ng-if='vm.submittingPost'>
+          <div class='loader'></div>
+        </div>
+        <button ng-if='!vm.submittingPost' class='btn btn-success' ng-disabled='form.$invalid' type='submit'>Submit Post</button>
+    </form>
+</section>

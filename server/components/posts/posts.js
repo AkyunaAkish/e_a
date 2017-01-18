@@ -2,7 +2,10 @@
 const express = require('express');
 const router = express.Router();
 
-// TODO: When an admin creates/updates/deletes a post, require an email and password field to be 
-// included in order to validate both their session token data and that the user knows the password of the admin
+let submitPostController = require('./controllers/submitPost.server.controller.js');
+let retrievePostsController = require('./controllers/retrievePosts.server.controller.js');
+
+router.post('/submit-post', submitPostController);
+router.get('/retrieve-posts', retrievePostsController);
 
 module.exports = router;

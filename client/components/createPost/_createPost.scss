@@ -114,6 +114,12 @@
         height: 400px;
     }
 }
+
+#thumbnail {
+    height: 200px;
+    max-width: 200px;
+}
+
 @media screen and (max-width: 850px) {
     .post-component-panel {
         width: 90%;

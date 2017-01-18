@@ -14,7 +14,6 @@ import compileDirective from './utils/directives/compile.util.js';
 import blurDirective from './utils/directives/blur.util.js';
 
 import authService from './services/auth.service.js';
-import createPostService from './services/createPost.service.js';
 import signupService from './services/signup.service.js';
 import signinService from './services/signin.service.js';
 import errorService from './services/error.service.js';
@@ -32,9 +31,11 @@ angular.module('ElenaAkish', [
         'ngStorage'
     ])
     .constant('HOST', HOST)
+    .config(['$qProvider', ($qProvider) => {
+        $qProvider.errorOnUnhandledRejections(false);
+    }])
     .service('errorService', errorService)
     .service('authService', authService)
-    .service('createPostService', createPostService)
     .service('signupService', signupService)
     .service('signinService', signinService)
     .directive('compile', compileDirective)
