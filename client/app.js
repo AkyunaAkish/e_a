@@ -2,6 +2,7 @@ import angular from 'angular';
 import 'angular-ui-router';
 import 'angular-bootstrap-npm';
 import 'angular-messages';
+import 'angular-moment';
 import 'ngstorage';
 
 import layoutDirective from './components/layout/layout.directive.js';
@@ -12,6 +13,7 @@ import signinDirective from './components/signin/signin.directive.js';
 import createPostDirective from './components/createPost/createPost.directive.js';
 import compileDirective from './utils/directives/compile.util.js';
 import blurDirective from './utils/directives/blur.util.js';
+import dirPagination from './utils/paginate/paginate.js';
 
 import authService from './services/auth.service.js';
 import signupService from './services/signup.service.js';
@@ -28,7 +30,9 @@ angular.module('ElenaAkish', [
         'ui.router',
         'ui.bootstrap',
         'ngMessages',
-        'ngStorage'
+        'ngStorage',
+        'angularMoment',
+        dirPagination.name
     ])
     .constant('HOST', HOST)
     .config(['$qProvider', ($qProvider) => {

@@ -7,7 +7,8 @@ module.exports = (req, res) => {
             .insert({
                 title: req.body.post.title,
                 thumbnail_url: req.body.post.thumbnail_url,
-                content: req.body.post.content
+                content: req.body.post.content,
+                created_at: Date.now()
             }).returning('*')
             .then((post) => {
                 resolve({

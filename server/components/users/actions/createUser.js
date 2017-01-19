@@ -19,7 +19,8 @@ module.exports = (req, res) => {
                     username: formattedUsername,
                     email: req.body.email,
                     password: password_hash,
-                    admin: formattedUsername === 'Elena Akish' ? true : false
+                    admin: formattedUsername === 'Elena Akish' ? true : false,
+                    created_at: Date.now()
                 }).returning('*')
                 .then((user) => {
                     resolve({

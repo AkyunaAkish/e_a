@@ -23,6 +23,7 @@
     "angular": "^1.6.1",
     "angular-bootstrap-npm": "^0.14.3",
     "angular-messages": "^1.6.1",
+    "angular-moment": "^1.0.1",
     "angular-strap": "git+https://github.com/mgcrea/angular-strap.git",
     "angular-ui-router": "^0.3.2",
     "babel-core": "^6.21.0",

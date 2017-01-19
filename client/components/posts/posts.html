@@ -1,2 +1,39 @@
-<h1>Posts</h1>
-{{vm.posts | json}}
+<div class='panel panel-default search-panel'>
+    <div class='panel-heading text-center'>
+        <h1 class='fa fa-search'></h1>
+    </div>
+    <div class='panel-body text-center'>
+        <input class='form-control' type='text' placeholder='Search' ng-model='vm.searchPosts'>
+        <div class='form-group'>
+            <select class='form-control' id='order' ng-model='vm.postOrder' ng-init='vm.postOrder = "created_at"'>
+                <option value='created_at'>Newest to Oldest</option>
+                <option value='-created_at'>Oldest to Newest</option>
+            </select>
+        </div>
+        <dir-pagination-controls pagination-id='postsPaginate'></dir-pagination-controls>
+    </div>
+</div>
+
+<div class='container-fluid posts-container'>
+    <div class='row-fluid'>
+        <div class='col-lg-4' dir-paginate='post in vm.posts | filter: vm.searchPosts | orderBy: vm.postOrder | itemsPerPage: 9' pagination-id='postsPaginate'>
+            <div class='item'>
+                <div class='content'>
+                    <div class='panel panel-default post-repeat-panel'>
+                        <div class='panel-heading text-center'>
+                            <h1 ng-bind='post.title'></h1>
+                            <time title='{{ post.created_at | amDateFormat: "dddd, MMMM Do YYYY, h:mm a" }}'>
+                                {{ post.created_at | amCalendar }}
+                            </time>
+                        </div>
+                        <div class='panel-body text-center'>
+                            <img ng-src='{{post.thumbnail_url}}'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<dir-pagination-controls pagination-id='postsPaginate'></dir-pagination-controls>

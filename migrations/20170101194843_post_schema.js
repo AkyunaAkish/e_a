@@ -4,7 +4,7 @@ exports.up = (knex, Promise) => {
         table.string('title').notNullable();
         table.string('thumbnail_url').notNullable();
         table.text('content', 'longtext').notNullable();
-        table.bigInteger('created_at').notNullable().defaultTo(Date.now());
+        table.bigInteger('created_at').notNullable();
     });
 };
 

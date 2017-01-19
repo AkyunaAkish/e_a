@@ -1,2 +1,59 @@
 @import '../../sass/utils/variables';
 @import '../../sass/utils/mixins';
+
+.posts-container {
+    margin-top: 20px;
+
+    .panel-heading {
+        background: $purple;
+
+        h1 {
+            color: white;
+        }
+
+        time {
+            color: $sky;
+        }
+    }
+
+    img {
+        height: 380px;
+    }
+}
+
+.search-panel {
+    margin: 5px auto 0;
+    width: 70%;
+
+    .fa-search {
+        font-size: 2em;
+    }
+
+    .panel-heading {
+        background: $dark;
+        color: $sky;
+    }
+
+    .panel-body {
+        .form-control {
+            margin: 0 auto;
+            width: 50%;
+            margin-bottom: 10px;
+        }
+    }
+}
+@media screen and (max-width: 850px) {
+    .posts-container {
+        img {
+            height: 200px;
+        }
+    }
+
+    .search-panel {
+        .panel-body {
+            .form-control {
+                width: 90%;
+            }
+        }
+    }
+}
