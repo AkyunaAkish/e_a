@@ -1,16 +1,11 @@
 <div class='panel panel-default search-panel'>
-    <div class='panel-heading text-center'>
-        <h1 class='fa fa-search'></h1>
-    </div>
     <div class='panel-body text-center'>
-        <input class='form-control' type='text' placeholder='Search' ng-model='vm.searchPosts'>
-        <div class='form-group'>
-            <select class='form-control' id='order' ng-model='vm.postOrder' ng-init='vm.postOrder = "created_at"'>
-                <option value='created_at'>Newest to Oldest</option>
-                <option value='-created_at'>Oldest to Newest</option>
-            </select>
-        </div>
-        <dir-pagination-controls pagination-id='postsPaginate'></dir-pagination-controls>
+        <h1 class='fa fa-search inline'></h1>
+        <input class='form-control inline' type='text' placeholder='Search' ng-model='vm.searchPosts'>
+        <select class='form-control inline' id='order' ng-model='vm.postOrder' ng-init='vm.postOrder = "created_at"'>
+            <option value='created_at'>Newest to Oldest</option>
+            <option value='-created_at'>Oldest to Newest</option>
+        </select>
     </div>
 </div>
 

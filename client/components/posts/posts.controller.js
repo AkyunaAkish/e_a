@@ -1,9 +1,10 @@
 class PostsController {
     /**@ngInject*/
-    constructor($http, HOST, $scope) {
+    constructor($http, HOST, $scope, $state) {
         this.$http = $http;
         this.$scope = $scope;
         this.HOST = HOST;
+        this.$state = $state;
 
         this.$http.get(`${this.HOST}/posts/retrieve-posts`)
             .then((posts) => {

@@ -6,9 +6,11 @@
 
     .panel-heading {
         background: $purple;
+        padding: 5px;
 
         h1 {
             color: white;
+            margin: 0;
         }
 
         time {
@@ -29,15 +31,18 @@
         font-size: 2em;
     }
 
-    .panel-heading {
-        background: $dark;
-        color: $sky;
-    }
-
     .panel-body {
+        background: $dark;
+        padding: 5px 0;
+
+        h1 {
+            color: $sky;
+            margin-right: 10px;
+        }
+
         .form-control {
             margin: 0 auto;
-            width: 50%;
+            width: 45%;
             margin-bottom: 10px;
         }
     }
@@ -51,8 +56,13 @@
 
     .search-panel {
         .panel-body {
+            h1 {
+                display: block !important;
+            }
+
             .form-control {
                 width: 90%;
+                display: block !important;
             }
         }
     }

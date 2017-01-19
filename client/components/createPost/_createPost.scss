@@ -56,13 +56,15 @@
 
 .post-component-panel {
     width: 60%;
-    margin: 0 auto;
+    margin: 0 auto 10px;
 
     .panel-heading {
         background: $dark;
+        padding: 5px;
 
         h1 {
             color: $sky;
+            margin: 0;
         }
 
         i {
@@ -119,7 +121,6 @@
     height: 200px;
     max-width: 200px;
 }
-
 @media screen and (max-width: 850px) {
     .post-component-panel {
         width: 90%;
