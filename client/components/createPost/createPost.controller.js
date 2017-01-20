@@ -80,7 +80,7 @@ class CreatePostController {
     }
 
     addPostComponent(type) {
-        // alert('addPostComponent Called ' + type);
+        alert('addPostComponent Called ' + type);
         switch (type) {
             case 'header':
                 this.post.components.push({
