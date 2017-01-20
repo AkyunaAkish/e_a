@@ -1,39 +1,36 @@
 <div class='panel panel-default create-post-panel'>
     <div class='panel-heading text-center'>
-        <button type='button' class='btn btn-lg post-component-btn' ng-click='vm.addPostComponent("header")'>
+        <button type='button' class='btn btn-lg post-component-btn' ng-click='vm.addPostComponent("header")' blur>
             Header
         </button>
-        <button type='button' class='btn btn-lg post-submit-btn' ng-click='vm.addPostComponent("header")'>
-            Submit
-        </button>
-        <button type='button' class='btn btn-lg post-component-btn' ng-click='vm.addPostComponent("text")'>
+        <button type='button' class='btn btn-lg post-component-btn' ng-click='vm.addPostComponent("text")' blur>
             Text
         </button>
-        <button type='button' class='btn btn-lg post-component-btn' ng-click='vm.addPostComponent("link")'>
+        <button type='button' class='btn btn-lg post-component-btn' ng-click='vm.addPostComponent("link")' blur>
             Link
         </button>
-        <button type='button' class='btn btn-lg post-component-btn' ng-click='vm.addPostComponent("image")'>
+        <button type='button' class='btn btn-lg post-component-btn' ng-click='vm.addPostComponent("image")' blur>
             Image
         </button>
-        <button type='button' class='btn btn-lg post-component-btn' ng-click='vm.addPostComponent("googleDriveImage")'>
+        <button type='button' class='btn btn-lg post-component-btn' ng-click='vm.addPostComponent("googleDriveImage")' blur>
             Google Drive Image
         </button>
-        <button type='button' class='btn btn-lg post-component-btn' ng-click='vm.addPostComponent("iframe")'>
+        <button type='button' class='btn btn-lg post-component-btn' ng-click='vm.addPostComponent("iframe")' blur>
             Video
         </button>
-        <button ng-if='!vm.showTips' type='button' class='btn btn-lg post-tips-btn' ng-click='vm.showTips = true;vm.previewing = false'>
+        <button ng-if='!vm.showTips' type='button' class='btn btn-lg post-tips-btn' ng-click='vm.showTips = true;vm.previewing = false' blur>
             Tips
         </button>
-        <button ng-if='vm.showTips' type='button' class='btn btn-lg post-tips-btn' ng-click='vm.showTips = false'>
+        <button ng-if='vm.showTips' type='button' class='btn btn-lg post-tips-btn' ng-click='vm.showTips = false' blur>
             Close Tips
         </button>
-        <button ng-if='!vm.previewing' type='button' class='btn btn-lg post-preview-btn' ng-click='vm.previewing = true;vm.showTips = false'>
+        <button ng-if='!vm.previewing' type='button' class='btn btn-lg post-preview-btn' ng-click='vm.previewing = true;vm.showTips = false' blur>
             Preview
         </button>
-        <button ng-if='vm.previewing' type='button' class='btn btn-lg post-preview-btn' ng-click='vm.previewing = false'>
+        <button ng-if='vm.previewing' type='button' class='btn btn-lg post-preview-btn' ng-click='vm.previewing = false' blur>
             Close Preview
         </button>
-        <button type='button' class='btn btn-lg post-submit-btn' ng-click='vm.openSubmitPostModal()'>
+        <button type='button' class='btn btn-lg post-submit-btn' ng-click='vm.openSubmitPostModal()' blur>
             Submit
         </button>
     </div>

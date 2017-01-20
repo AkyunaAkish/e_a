@@ -254,11 +254,6 @@ class CreatePostController {
             return '/images/ElenaAkishLotus.png';
         }
     }
-
-    sendMessage() {
-      alert('send message');
-    }
-
 };
 
 export default CreatePostController;
