@@ -8,6 +8,10 @@ export default (['$stateProvider', '$urlRouterProvider', '$locationProvider',
                 url: '/',
                 template: '<posts-directive></posts-directive>'
             })
+            .state('layout.post', {
+                url: '/posts/:id',
+                template: '<post-directive></post-directive>'
+            })
             .state('layout.signup', {
                 url: '/signup',
                 template: '<signup-directive></signup-directive>',
@@ -24,6 +28,7 @@ export default (['$stateProvider', '$urlRouterProvider', '$locationProvider',
                 mustBeLoggedIn: true,
                 mustBeAdmin: true
             });
+
 
         $urlRouterProvider.otherwise('/');
         $locationProvider.html5Mode(true);

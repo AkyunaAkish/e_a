@@ -86,6 +86,11 @@
             width: 25%;
             text-align: center;
         }
+
+        iframe,
+        img {
+            margin: 0 auto;
+        }
     }
 
     .panel-body {
@@ -99,8 +104,10 @@
     }
 }
 
-.post-preview-panel {
+.post-panel {
     @extend .post-component-panel;
+    margin-top: 10px;
+    width: 90%;
 
     iframe,
     img {

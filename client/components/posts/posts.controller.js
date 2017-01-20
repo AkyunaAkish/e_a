@@ -1,6 +1,6 @@
 class PostsController {
     /**@ngInject*/
-    constructor($http, HOST, $scope, $state) {
+    constructor($http, HOST, $scope, $state, $rootScope) {
         this.$http = $http;
         this.$scope = $scope;
         this.HOST = HOST;
@@ -17,10 +17,6 @@ class PostsController {
             .catch((err) => {
                 console.log('Posts could not be retrieved', err);
             });
-    }
-
-    filteredResults() {
-        return this.$scope.$eval("post in vm.posts | filter: vm.searchPosts | orderBy:'created_at'");
     }
 };
 

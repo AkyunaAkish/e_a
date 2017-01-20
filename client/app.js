@@ -8,6 +8,7 @@ import 'ngstorage';
 import layoutDirective from './components/layout/layout.directive.js';
 import navbarDirective from './components/navbar/navbar.directive.js';
 import postsDirective from './components/posts/posts.directive.js';
+import postDirective from './components/post/post.directive.js';
 import signupDirective from './components/signup/signup.directive.js';
 import signinDirective from './components/signin/signin.directive.js';
 import createPostDirective from './components/createPost/createPost.directive.js';
@@ -47,6 +48,7 @@ angular.module('ElenaAkish', [
     .directive('layoutDirective', layoutDirective)
     .directive('navbarDirective', navbarDirective)
     .directive('postsDirective', postsDirective)
+    .directive('postDirective', postDirective)
     .directive('signupDirective', signupDirective)
     .directive('signinDirective', signinDirective)
     .directive('createPostDirective', createPostDirective)
