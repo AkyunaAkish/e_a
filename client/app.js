@@ -3,6 +3,7 @@ import 'angular-ui-router';
 import 'angular-bootstrap-npm';
 import 'angular-messages';
 import 'angular-moment';
+import 'angular-touch';
 import 'ngstorage';
 
 import layoutDirective from './components/layout/layout.directive.js';
@@ -33,6 +34,7 @@ angular.module('ElenaAkish', [
         'ngMessages',
         'ngStorage',
         'angularMoment',
+        'ngTouch',
         dirPagination.name
     ])
     .constant('HOST', HOST)

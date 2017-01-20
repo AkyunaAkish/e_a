@@ -21,7 +21,7 @@ class CreatePostController {
         this.ind = {};
         this.previewing = false;
         this.showTips = false;
-        this.preview = `<div class='panel panel-default post-preview-panel'>
+        this.preview = `<div class='panel panel-default post-panel'>
                       <div class='panel-heading text-center'>
                           <h1>Preview</h1>
                       </div>
