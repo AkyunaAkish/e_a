@@ -44,7 +44,6 @@ class CreatePostController {
 
         if (this.$localStorage.post) {
             this.post = this.$localStorage.post;
-            this.$scope.$evalAsync();
         }
 
         this.$scope.$watch(() => {
@@ -53,7 +52,6 @@ class CreatePostController {
             this.$localStorage.post = newVal;
             this.authService.refreshToken();
             this.updatePreview(newVal);
-            this.$scope.$evalAsync();
         }, true);
     }
 
@@ -82,7 +80,6 @@ class CreatePostController {
     }
 
     addPostComponent(type) {
-        alert('addPostComponent Called ' + type);
         switch (type) {
             case 'header':
                 this.post.components.push({
