@@ -1,4 +1,3 @@
-{{vm.post.components}}
 <div class='panel panel-default create-post-panel'>
     <div class='panel-heading text-center'>
         <button type='button' class='btn btn-lg post-component-btn' ng-click='vm.addPostComponent("header")' blur>
@@ -35,6 +34,8 @@
             Submit
         </button>
     </div>
+    {{vm.post.components | json}}
+    {{vm.post | json}}
     <div ng-if='vm.showTips' class='panel-body'>
         <div class='panel panel-default post-component-panel'>
             <div class='panel-heading text-center'>
