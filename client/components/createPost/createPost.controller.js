@@ -44,6 +44,7 @@ class CreatePostController {
 
         if (this.$localStorage.post) {
             this.post = this.$localStorage.post;
+            this.$scope.$evalAsync();
         }
 
         this.$scope.$watch(() => {
@@ -52,6 +53,7 @@ class CreatePostController {
             this.$localStorage.post = newVal;
             this.authService.refreshToken();
             this.updatePreview(newVal);
+            this.$scope.$evalAsync();
         }, true);
     }
 
