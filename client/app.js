@@ -14,7 +14,6 @@ import signinDirective from './components/signin/signin.directive.js';
 import createPostDirective from './components/createPost/createPost.directive.js';
 import compileDirective from './utils/directives/compile.util.js';
 import blurDirective from './utils/directives/blur.util.js';
-import onTouchDirective from './utils/directives/onTouch.util.js';
 import dirPagination from './utils/paginate/paginate.js';
 
 import authService from './services/auth.service.js';
@@ -46,7 +45,6 @@ angular.module('ElenaAkish', [
     .service('signinService', signinService)
     .directive('compile', compileDirective)
     .directive('blur', blurDirective)
-    .directive('onTouchEvent', onTouchDirective)
     .directive('layoutDirective', layoutDirective)
     .directive('navbarDirective', navbarDirective)
     .directive('postsDirective', postsDirective)
