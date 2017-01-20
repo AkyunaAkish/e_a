@@ -32,7 +32,6 @@ module.exports = (req, res) => {
                                             insertPost(req, res)
                                                 .then((insertRes) => {
                                                     if (insertRes.success) {
-                                                        console.log('insert post then', insertRes);
                                                         res.json({
                                                             success: insertRes.success
                                                         });
@@ -43,14 +42,12 @@ module.exports = (req, res) => {
                                                     }
                                                 })
                                                 .catch((err) => {
-                                                    console.log('insert post catch', err);
                                                     res.json({
                                                         error: 'Post failed to be submitted',
                                                         reason: err
                                                     });
                                                 });
                                         } else {
-                                            console.log('password err', verifyPasswordRes);
                                             res.json({
                                                 error: 'Invalid Password',
                                                 reason: verifyPasswordRes.error || null
@@ -58,7 +55,6 @@ module.exports = (req, res) => {
                                         }
                                     })
                                     .catch((err) => {
-                                        console.log('password err', err);
                                         res.json({
                                             error: 'Invalid Password',
                                             reason: err || null
@@ -72,27 +68,22 @@ module.exports = (req, res) => {
                             }
                         })
                         .catch((err) => {
-                            console.log('user success else', user);
-
                             res.json({
                                 error: err
                             });
                         });
                 } else {
-                    console.log('user success else', user);
                     res.json({
                         error: 'Could not retrieve user for validation of session'
                     });
                 }
             })
             .catch((err) => {
-                console.log('retrieve user catch', err);
                 res.json({
                     error: err
                 });
             });
     } else {
-        console.log('not enough data in submit post', req.body);
         res.json({
             error: 'An error occurred, please sign in.'
         });

@@ -80,6 +80,7 @@ class CreatePostController {
     }
 
     addPostComponent(type) {
+        // alert('addPostComponent Called ' + type);
         switch (type) {
             case 'header':
                 this.post.components.push({
@@ -252,6 +253,10 @@ class CreatePostController {
         } else {
             return '/images/ElenaAkishLotus.png';
         }
+    }
+
+    sendMessage() {
+      alert('send message');
     }
 
 };
