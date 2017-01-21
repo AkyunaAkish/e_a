@@ -12,7 +12,7 @@ module.exports = (req, res) => {
             .catch((err) => {
                 reject({
                     error: 'An error occurred when attempting to retrieve posts.',
-                    psql_error: err
+                    reason: err
                 });
             });
     });

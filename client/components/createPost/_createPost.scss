@@ -1,5 +1,5 @@
 @import '../../sass/utils/variables';
-@import '../../sass/utils/mixins';
+@import '../../sass/utils/extendables';
 
 .create-post-panel {
     border: none;
@@ -55,57 +55,13 @@
 }
 
 .post-component-panel {
-    width: 60%;
-    margin: 0 auto 10px;
-
-    .panel-heading {
-        background: $dark;
-        padding: 5px;
-
-        h1 {
-            color: $sky;
-            margin: 0;
-        }
-
-        i {
-            color: $red;
-        }
-
-        button {
-            background: $dark;
-            color: $sky;
-            margin: 5px;
-        }
-
-        label {
-            color: white;
-            display: block;
-        }
-
-        select {
-            width: 25%;
-            text-align: center;
-        }
-
-        iframe,
-        img {
-            margin: 0 auto;
-        }
-    }
-
-    .panel-body {
-        input,
-        textarea {
-            width: 80%;
-            max-width: 80%;
-            display: block;
-            margin: 0 auto;
-        }
-    }
+    @extend #panel-mixin;
+    width: 90%;
+    margin-top: 10px;
 }
 
 .post-panel {
-    @extend .post-component-panel;
+    @extend #panel-mixin;
     margin-top: 10px;
     width: 90%;
 
@@ -134,7 +90,6 @@
         height: 300px;
     }
 }
-
 @media screen and (max-width: 850px) {
     .post-component-panel {
         width: 90%;

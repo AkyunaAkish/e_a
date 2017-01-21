@@ -1,6 +1,72 @@
 @import '../../sass/utils/variables';
-@import '../../sass/utils/mixins';
+@import '../../sass/utils/extendables';
 
 .post-container {
     margin-top: 20px;
+}
+
+.post-container {
+    margin-top: 10px;
+    width: 100% !important;
+
+    .post-panel {
+        @extend #panel-mixin;
+        padding: 0;
+        width: 90%;
+        margin: 0 auto;
+
+        iframe,
+        img {
+            margin: 0 auto 10px;
+            height: 300px;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        iframe {
+            width: 70%;
+            height: 400px;
+        }
+    }
+}
+
+.comments-panel {
+    @extend #panel-mixin;
+    width: 90% !important;
+    margin: 10px auto 0;
+}
+
+.add-comment-panel {
+    @extend #panel-mixin;
+    width: 90% !important;
+    margin: 10px auto 0;
+
+    textarea {
+        width: 70%;
+        max-width: 70%;
+    }
+
+    button.btn.btn-lg {
+        background: $dark;
+        color: $sky;
+
+        &:hover {
+            background: $sky;
+            color: $dark;
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .post-container {
+        .post-panel {
+            iframe,
+            img {
+                width: 90%;
+                height: 200px;
+            }
+        }
+    }
 }

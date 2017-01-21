@@ -1,18 +1,18 @@
 const knex = require('../../../db_config/knex');
 const bcrypt = require('bcrypt');
 
-module.exports = (req, res) => {
+module.exports = (req, res, user) => {
     return new Promise((resolve, reject) => {
-        knex('posts')
+        knex('comments')
             .insert({
-                title: req.body.post.title,
-                thumbnail_url: req.body.post.thumbnail_url,
-                content: req.body.post.content,
+                comment: req.body.comment,
+                user_id: user.id,
+                post_id: req.body.post.id,
                 created_at: Date.now()
             }).returning('*')
-            .then((post) => {
+            .then((comment) => {
                 resolve({
-                    success: post[0]
+                    success: comment[0]
                 });
             })
             .catch((err) => {

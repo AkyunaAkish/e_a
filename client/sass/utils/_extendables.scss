@@ -1,0 +1,89 @@
+#auth-form {
+    .form-group {
+        label {
+            width: 100%;
+            text-align: center;
+            color: $dark;
+            font-size: 1.2em;
+
+            ng-message {
+                display: block;
+                color: $red;
+            }
+
+            .form-control {
+                width: 50%;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .form-footer {
+        button {
+            background: $dark;
+            color: $sky;
+            width: 25%;
+        }
+    }
+}
+
+#panel-mixin {
+    .panel-heading {
+        background: $dark;
+
+        h1 {
+            color: $sky;
+            margin: 0;
+        }
+
+        i {
+            color: $red;
+        }
+
+        button {
+            background: $dark;
+            color: $sky;
+            margin: 5px;
+        }
+
+        label {
+            color: white;
+            display: block;
+        }
+
+        select {
+            width: 25%;
+            text-align: center;
+        }
+
+        iframe,
+        img {
+            margin: 0 auto;
+        }
+    }
+
+    .panel-body {
+        input,
+        textarea {
+            width: 80%;
+            max-width: 80%;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
+@media screen and (max-width: 850px) {
+    .form-group {
+        label {
+            .form-control {
+                width: 75%;
+            }
+        }
+    }
+
+    .form-footer {
+        button {
+            width: 50%;
+        }
+    }
+}

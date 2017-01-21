@@ -1,1 +1,49 @@
-<div class='container' ng-bind-html='vm.trustHTML(vm.post.content)' compile></div>
+<div class='post-container' ng-bind-html='vm.trustHTML(vm.post.content)' compile></div>
+<div class='panel panel-default comments-panel'>
+    <div class='panel-heading text-center'>
+        <h1>Comments</h1>
+    </div>
+    <div class='panel-body'>
+        <section class='comments-section'>
+            <div ng-repeat='comment in vm.comments' ng-if='vm.comments && vm.comments.length > 0'>
+                <span ng-class='$index % 2 === 0 ? "left" : "right"' ng-bind='comment.comment'></span>
+                <div class='clear'></div>
+            </div>
+            <div ng-if='!vm.comments || vm.comments.length < 1' class='text-center'>
+                <h1>No comments have been submitted yet for this post.</h1>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class='panel panel-default add-comment-panel' ng-if='vm.session !== null'>
+    <div class='panel-heading text-center'>
+        <h1>Add Comment</h1>
+    </div>
+    <div class='panel-body'>
+        <section class='add-comment-section'>
+            <form ng-submit='vm.comment()' novalidate='novalidate'>
+                <div class='comment-form'>
+                    <div class='input-container'>
+                        <div class='form-group text-center'>
+                            <textarea type='text' class='form-control text-left' placeholder='Comment' name='comment' ng-model='vm.commentObj.comment' required/>
+                        </div>
+                        <div class='form-footer text-center'>
+                            <button class='btn btn-lg' ng-if='!vm.commenting' type='submit' ng-disabled='commentForm.$invalid'>
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <div ng-if='vm.commenting'>
+            <div class='loader comment-loader'></div>
+            <div class='text-center'>
+                <h5 class='loading-text'>
+                    Adding comment...
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>

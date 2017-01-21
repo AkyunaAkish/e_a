@@ -1,21 +1,20 @@
 const knex = require('../../../db_config/knex');
 const bcrypt = require('bcrypt');
 
-module.exports = (id) => {
+module.exports = (req, res) => {
     return new Promise((resolve, reject) => {
-        knex('posts')
+        knex('comments')
             .where({
-                id: id
+                post_id: req.params.id
             })
-            .first()
-            .then((post) => {
+            .then((comments) => {
                 resolve({
-                    success: post
+                    success: comments
                 });
             })
             .catch((err) => {
                 reject({
-                    error: 'An error occurred when attempting to retrieve post.',
+                    error: 'An error occurred when attempting to retrieve comments.',
                     reason: err
                 });
             });
