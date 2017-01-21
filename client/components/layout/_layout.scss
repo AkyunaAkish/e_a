@@ -146,7 +146,7 @@ video {
     }
 }
 
-span {
+span.comment {
     display: inline-block;
     max-width: 48%;
     background-color: white;
@@ -158,7 +158,7 @@ span {
     word-wrap: break-word;
 }
 
-span.left {
+span.comment.left {
     float: left;
     background: rgba(235,233,249,1);
     background: -moz-linear-gradient(left, rgba(235,233,249,1) 0%, rgba(206,199,236,1) 0%, rgba(193,191,234,1) 0%, rgba(216,208,239,1) 54%, rgba(216,208,239,1) 74%, rgba(216,208,239,1) 100%);
@@ -167,11 +167,11 @@ span.left {
     background: -o-linear-gradient(left, rgba(235,233,249,1) 0%, rgba(206,199,236,1) 0%, rgba(193,191,234,1) 0%, rgba(216,208,239,1) 54%, rgba(216,208,239,1) 74%, rgba(216,208,239,1) 100%);
     background: -ms-linear-gradient(left, rgba(235,233,249,1) 0%, rgba(206,199,236,1) 0%, rgba(193,191,234,1) 0%, rgba(216,208,239,1) 54%, rgba(216,208,239,1) 74%, rgba(216,208,239,1) 100%);
     background: linear-gradient(to right, rgba(235,233,249,1) 0%, rgba(206,199,236,1) 0%, rgba(193,191,234,1) 0%, rgba(216,208,239,1) 54%, rgba(216,208,239,1) 74%, rgba(216,208,239,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= '#ebe9f9', endColorstr='#d8d0ef', GradientType=1 );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#ebe9f9', endColorstr='#d8d0ef', GradientType=1 );
     color: $dark;
 }
 
-span.left:after {
+span.comment.left:after {
     content: "";
     display: inline-block;
     position: absolute;
@@ -184,7 +184,7 @@ span.left:after {
     border-right: 8px solid #c1bfea;
 }
 
-span.left:before {
+span.comment.left:before {
     content: "";
     display: inline-block;
     position: absolute;
@@ -197,7 +197,7 @@ span.left:before {
     border-right: 8px solid #c1bfea;
 }
 
-span.right:after {
+span.comment.right:after {
     content: "";
     display: inline-block;
     position: absolute;
@@ -210,7 +210,7 @@ span.right:after {
     border-left: 8px solid #c1bfea;
 }
 
-span.right:before {
+span.comment.right:before {
     content: "";
     display: inline-block;
     position: absolute;
@@ -223,7 +223,7 @@ span.right:before {
     border-left: 8px solid #c1bfea;
 }
 
-span.right {
+span.comment.right {
     float: right;
     background: rgba(235,233,249,1);
     background: -moz-linear-gradient(left, rgba(235,233,249,1) 0%, rgba(206,199,236,1) 0%, rgba(216,208,239,1) 41%, rgba(193,191,234,1) 70%, rgba(193,191,234,1) 100%);

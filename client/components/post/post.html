@@ -6,7 +6,7 @@
     <div class='panel-body'>
         <section class='comments-section'>
             <div ng-repeat='comment in vm.comments' ng-if='vm.comments && vm.comments.length > 0'>
-                <span ng-class='$index % 2 === 0 ? "left" : "right"' ng-bind='comment.comment'></span>
+                <span class='comment' ng-class='$index % 2 === 0 ? "left" : "right"' ng-bind='comment.comment'></span>
                 <div class='clear'></div>
             </div>
             <div ng-if='!vm.comments || vm.comments.length < 1' class='text-center'>
