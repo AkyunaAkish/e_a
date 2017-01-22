@@ -8,7 +8,7 @@ module.exports = (req, res, user) => {
                 comment: req.body.comment,
                 user_id: user.id,
                 post_id: req.body.post.id,
-                created_at: Date.now()
+                comment_created_at: Date.now()
             }).returning('*')
             .then((comment) => {
                 resolve({

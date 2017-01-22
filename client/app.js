@@ -4,6 +4,7 @@ import 'angular-bootstrap-npm';
 import 'angular-messages';
 import 'angular-moment';
 import 'ngstorage';
+import io from 'socket.io-client';
 
 import layoutDirective from './components/layout/layout.directive.js';
 import navbarDirective from './components/navbar/navbar.directive.js';
@@ -26,6 +27,7 @@ import stateChange from './utils/stateChange.util.js';
 import './sass/style.scss';
 
 const HOST = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : window.location.origin;
+const socket = io.connect(HOST);
 
 angular.module('ElenaAkish', [
         'ui.router',
@@ -36,6 +38,7 @@ angular.module('ElenaAkish', [
         dirPagination.name
     ])
     .constant('HOST', HOST)
+    .constant('socket', socket)
     .config(['$qProvider', ($qProvider) => {
         $qProvider.errorOnUnhandledRejections(false);
     }])

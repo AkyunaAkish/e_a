@@ -3,7 +3,7 @@ exports.up = (knex, Promise) => {
         table.increments();
         table.integer('user_id').unsigned().references('id').inTable('users');
         table.integer('post_id').unsigned().references('id').inTable('posts');
-        table.bigInteger('created_at').notNullable();
+        table.bigInteger('like_created_at').notNullable();
     });
 };
 

@@ -5,7 +5,7 @@ exports.up = (knex, Promise) => {
         table.string('email').unique().notNullable();
         table.string('password').notNullable();
         table.boolean('admin').notNullable().defaultTo(false);
-        table.bigInteger('created_at').notNullable();
+        table.bigInteger('user_created_at').notNullable();
     });
 };
 

@@ -9,7 +9,7 @@ module.exports = (user) => {
             username: user.username,
             email: user.email,
             admin: user.admin,
-            created_at: user.created_at
+            user_created_at: user.created_at
         }, process.env.SECRET, {
             expiresIn: process.env.SESSION_LIMIT
         });

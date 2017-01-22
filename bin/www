@@ -1,13 +1,15 @@
 const app = require('../server.js');
 const debug = require('debug')('spacecadevs:server');
 const http = require('http');
+const io = require('../lib/io');
 
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 const server = http.createServer(app);
 
-server.listen(port);
+let listener = server.listen(port);
+io.attach(listener);
 
 server.on('error', onError);
 server.on('listening', onListening);

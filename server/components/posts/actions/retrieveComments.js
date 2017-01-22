@@ -7,9 +7,17 @@ module.exports = (req, res) => {
             .where({
                 post_id: req.params.id
             })
+            .innerJoin('users', 'comments.user_id', 'users.id')
             .then((comments) => {
+                let modifiedComments = comments.reduce((comments, comment) => {
+                    delete comment.admin;
+                    delete comment.password;
+                    comments.push(comment);
+                    return comments;
+                }, []);
+
                 resolve({
-                    success: comments
+                    success: modifiedComments
                 });
             })
             .catch((err) => {

@@ -20,7 +20,7 @@ module.exports = (req, res) => {
                     email: req.body.email,
                     password: password_hash,
                     admin: formattedUsername === 'Elena Akish' ? true : false,
-                    created_at: Date.now()
+                    user_created_at: Date.now()
                 }).returning('*')
                 .then((user) => {
                     resolve({

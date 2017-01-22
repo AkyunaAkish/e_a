@@ -4,9 +4,11 @@
 .create-post-panel {
     border: none;
     box-shadow: none;
+    margin: 0 auto;
 
     .panel-heading {
         background: $dark;
+        margin: 0 auto;
 
         .post-component-btn {
             background: $purple;
@@ -58,11 +60,13 @@
     @extend #panel-mixin;
     width: 90%;
     margin-top: 10px;
+    margin: 0 auto;
 }
 
 .post-panel {
     @extend #panel-mixin;
     margin-top: 10px;
+    margin: 0 auto;
     width: 90%;
 
     iframe,

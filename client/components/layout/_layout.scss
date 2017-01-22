@@ -20,6 +20,10 @@ html {
     display: inline-block !important;
 }
 
+.no-margin {
+    margin: 0;
+}
+
 embed,
 img,
 object,
@@ -148,6 +152,7 @@ video {
 
 span.comment {
     display: inline-block;
+    min-width: 48%;
     max-width: 48%;
     background-color: white;
     padding: 5px;

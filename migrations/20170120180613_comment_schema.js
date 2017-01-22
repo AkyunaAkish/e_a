@@ -4,7 +4,7 @@ exports.up = (knex, Promise) => {
         table.text('comment', 'longtext').notNullable();
         table.integer('user_id').unsigned().references('id').inTable('users');
         table.integer('post_id').unsigned().references('id').inTable('posts');
-        table.bigInteger('created_at').notNullable();
+        table.bigInteger('comment_created_at').notNullable();
     });
 };
 

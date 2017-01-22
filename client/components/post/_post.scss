@@ -2,17 +2,13 @@
 @import '../../sass/utils/extendables';
 
 .post-container {
-    margin-top: 20px;
-}
-
-.post-container {
     margin-top: 10px;
     width: 100% !important;
 
     .post-panel {
         @extend #panel-mixin;
         padding: 0;
-        width: 90%;
+        width: 70%;
         margin: 0 auto;
 
         iframe,
@@ -34,13 +30,23 @@
 
 .comments-panel {
     @extend #panel-mixin;
-    width: 90% !important;
-    margin: 10px auto 0;
+    width: 70% !important;
+    margin: 10px auto;
+
+    .comment-time {
+        font-size: 0.8em;
+    }
+
+    .comment {
+        p {
+            font-size: 1.2em;
+        }
+    }
 }
 
 .add-comment-panel {
     @extend #panel-mixin;
-    width: 90% !important;
+    width: 70% !important;
     margin: 10px auto 0;
 
     textarea {
@@ -59,14 +65,35 @@
     }
 }
 
+.comment-header {
+    border-bottom: 1px solid $purple;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    color: $purple;
+}
 @media screen and (max-width: 850px) {
     .post-container {
         .post-panel {
+            width: 90%;
+
             iframe,
             img {
                 width: 90%;
                 height: 200px;
             }
+        }
+    }
+
+    .comments-panel {
+        width: 90% !important;
+    }
+
+    .add-comment-panel {
+        width: 90% !important;
+
+        textarea {
+            width: 90%;
+            max-width: 90%;
         }
     }
 }

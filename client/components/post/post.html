@@ -5,8 +5,18 @@
     </div>
     <div class='panel-body'>
         <section class='comments-section'>
-            <div ng-repeat='comment in vm.comments' ng-if='vm.comments && vm.comments.length > 0'>
-                <span class='comment' ng-class='$index % 2 === 0 ? "left" : "right"' ng-bind='comment.comment'></span>
+            <div ng-repeat='comment in vm.comments | orderBy: "comment_created_at"' ng-if='vm.comments && vm.comments.length > 0'>
+                <span class='comment' ng-class='$index % 2 === 0 ? "left" : "right"'>
+                    <div class='comment-header text-center'>
+                        <h4 class='block no-margin' ng-bind='comment.username'></h4>
+                        <time class='block comment-time' title='{{ comment.comment_created_at | amDateFormat: "dddd, MMMM Do YYYY, h:mm a" }}'>
+                            {{ comment.comment_created_at | amCalendar }}
+                        </time>
+                    </div>
+                    <p class='block'>
+                        {{comment.comment}}
+                    </p>
+                </span>
                 <div class='clear'></div>
             </div>
             <div ng-if='!vm.comments || vm.comments.length < 1' class='text-center'>
@@ -21,15 +31,15 @@
         <h1>Add Comment</h1>
     </div>
     <div class='panel-body'>
-        <section class='add-comment-section'>
+        <section class='add-comment-section' ng-if='!vm.commenting'>
             <form ng-submit='vm.comment()' novalidate='novalidate'>
                 <div class='comment-form'>
                     <div class='input-container'>
                         <div class='form-group text-center'>
-                            <textarea type='text' class='form-control text-left' placeholder='Comment' name='comment' ng-model='vm.commentObj.comment' required/>
+                            <input type='text' class='form-control text-left' placeholder='Comment' name='comment' ng-model='vm.commentObj.comment' required/>
                         </div>
                         <div class='form-footer text-center'>
-                            <button class='btn btn-lg' ng-if='!vm.commenting' type='submit' ng-disabled='commentForm.$invalid'>
+                            <button class='btn btn-lg' type='submit' ng-disabled='commentForm.$invalid || !vm.session'>
                                 Submit
                             </button>
                         </div>

@@ -8,7 +8,7 @@ module.exports = (req, res) => {
                 title: req.body.post.title,
                 thumbnail_url: req.body.post.thumbnail_url,
                 content: req.body.post.content,
-                created_at: Date.now()
+                post_created_at: Date.now()
             }).returning('*')
             .then((post) => {
                 resolve({

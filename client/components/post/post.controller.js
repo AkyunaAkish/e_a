@@ -1,6 +1,6 @@
 class PostController {
     /**@ngInject*/
-    constructor($http, HOST, $scope, $state, errorService, authService, $sce, $localStorage) {
+    constructor($http, HOST, socket, $scope, $state, errorService, authService, $sce, $localStorage) {
         this.$http = $http;
         this.$scope = $scope;
         this.$sce = $sce;
@@ -8,25 +8,17 @@ class PostController {
         this.errorService = errorService;
         this.authService = authService;
         this.HOST = HOST;
+        this.socket = socket;
         this.$state = $state;
         this.commenting = false;
         this.session = this.authService.getSession();
+        this.comments = [];
 
         this.$http.get(`${this.HOST}/posts/retrieve-post/${this.$state.params.id}`)
             .then((post) => {
                 if (post.data.success) {
                     this.post = post.data.success;
-                    this.$http.get(`${this.HOST}/posts/retrieve-comments/${this.$state.params.id}`)
-                        .then((comments) => {
-                            if (comments.data.success) {
-                                this.comments = comments.data.success;
-                            } else {
-                                this.$state.go('layout.posts');
-                            }
-                        })
-                        .catch((err) => {
-                            this.$state.go('layout.posts');
-                        });
+                    this.retrieveComments();
                 } else {
                     this.$state.go('layout.posts');
                 }
@@ -34,6 +26,11 @@ class PostController {
             .catch((err) => {
                 this.$state.go('layout.posts');
             });
+
+        this.socket.on('update-comments', () => {
+            this.retrieveComments();
+            this.$scope.$evalAsync();
+        });
     }
 
     comment() {
@@ -49,21 +46,9 @@ class PostController {
                 })
                 .then((comment) => {
                     if (comment.data.success) {
-                        this.$http.get(`${this.HOST}/posts/retrieve-comments/${this.$state.params.id}`)
-                            .then((comments) => {
-                                if (comments.data.success) {
-                                    this.comments = comments.data.success;
-                                    this.commenting = false;
-                                    this.commentObj = {};
-                                } else {
-                                    this.$state.go('layout.posts');
-                                    this.commenting = false;
-                                }
-                            })
-                            .catch((err) => {
-                                this.$state.go('layout.posts');
-                                this.commenting = false;
-                            });
+                        this.socket.emit('comment-submitted');
+                        this.commentObj = {};
+                        this.commenting = false;
                     } else {
                         this.errorService.setAuthError(`An error occurred and the comment could not be added, please confirm that you are signed in and try again.`);
                         this.errorService.openErrorModal();
@@ -76,6 +61,20 @@ class PostController {
                     this.commenting = false;
                 });
         }
+    }
+
+    retrieveComments() {
+        this.$http.get(`${this.HOST}/posts/retrieve-comments/${this.$state.params.id}`)
+            .then((comments) => {
+                if (comments.data.success) {
+                    this.comments = comments.data.success;
+                } else {
+                    this.$state.go('layout.posts');
+                }
+            })
+            .catch((err) => {
+                this.$state.go('layout.posts');
+            });
     }
 
     trustHTML(src) {
