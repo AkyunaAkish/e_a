@@ -17,7 +17,6 @@ class PostController {
         this.$http.get(`${this.HOST}/posts/retrieve-post/${this.$state.params.id}`).then((post) => {
             if (post.data.success) {
                 this.post = post.data.success;
-                console.log('this.post', this.post);
                 this.retrieveComments();
             } else {
                 this.$state.go('layout.posts');
