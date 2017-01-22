@@ -23,8 +23,8 @@ class SubmitPostController {
             typeof this.$localStorage.session.token === 'string' &&
             this.$localStorage.post.title &&
             typeof this.$localStorage.post.title === 'string' &&
-            this.$localStorage.preview &&
-            typeof this.$localStorage.preview === 'string' &&
+            this.$localStorage.post.body &&
+            typeof this.$localStorage.post.body === 'string' &&
             this.password &&
             typeof this.password === 'string') {
             this.submittingPost = true;
@@ -33,7 +33,7 @@ class SubmitPostController {
                     token: this.$localStorage.session.token,
                     post: {
                         ...this.$localStorage.post,
-                        content: this.$localStorage.preview,
+                        content: this.$localStorage.post.body,
                         thumbnail_url: this.decideThumbnail()
                     },
                     password: this.password

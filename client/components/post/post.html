@@ -1,4 +1,15 @@
-<div class='post-container' ng-bind-html='vm.trustHTML(vm.post.content)' compile></div>
+{{vm.post | json}}
+<div class='post-container' compile>
+    <div class='panel panel-default post-panel'>
+        <div class='panel-heading text-center'>
+            <h1 ng-bind='vm.post.title'></h1>
+            <time class='block post-time' title='{{ vm.post.post_created_at | amDateFormat: "dddd, MMMM Do YYYY, h:mm a" }}'>
+                {{ vm.post.post_created_at | amCalendar }}
+            </time>
+        </div>
+        <div class='panel-body' ng-bind-html='vm.trustHTML(vm.post.content)'></div>
+    </div>
+</div>
 <div class='panel panel-default comments-panel'>
     <div class='panel-heading text-center'>
         <h1>Comments</h1>

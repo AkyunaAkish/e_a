@@ -82,10 +82,7 @@ class CreatePostController {
     addPostComponent(type) {
         switch (type) {
             case 'header':
-                this.post.components.push({
-                    type: type,
-                    value: '',
-                    template: `<div class='panel panel-default post-component-panel'>
+                this.post.components.push({type: type, value: '', template: `<div class='panel panel-default post-component-panel'>
                                   <div class='panel-heading text-center'>
                                       <h1>Header <i class='fa fa-close' ng-click='vm.deleteComponent($index)'></i></h1>
                                       <div>
@@ -96,14 +93,10 @@ class CreatePostController {
                                   <div class='panel-body'>
                                       <input type='text' ng-model='vm.post.components[$index]["value"]'></input>
                                   </div>
-                              </div>`
-                });
+                              </div>`});
                 break;
             case 'text':
-                this.post.components.push({
-                    type: type,
-                    value: '',
-                    template: `<div class='panel panel-default post-component-panel'>
+                this.post.components.push({type: type, value: '', template: `<div class='panel panel-default post-component-panel'>
                                   <div class='panel-heading text-center'>
                                       <h1>Text <i class='fa fa-close' ng-click='vm.deleteComponent($index)'></i></h1>
                                         <div>
@@ -114,14 +107,10 @@ class CreatePostController {
                                   <div class='panel-body'>
                                     <textarea ng-model='vm.post.components[$index]["value"]'></textarea>
                                   </div>
-                              </div>`
-                });
+                              </div>`});
                 break;
             case 'link':
-                this.post.components.push({
-                    type: type,
-                    value: '',
-                    template: `<div class='panel panel-default post-component-panel'>
+                this.post.components.push({type: type, value: '', template: `<div class='panel panel-default post-component-panel'>
                                   <div class='panel-heading text-center'>
                                       <h1>Link <i class='fa fa-close' ng-click='vm.deleteComponent($index)'></i></h1>
                                         <div>
@@ -132,14 +121,10 @@ class CreatePostController {
                                   <div class='panel-body'>
                                     <input type='text' ng-model='vm.post.components[$index]["value"]'></input>
                                   </div>
-                              </div>`
-                });
+                              </div>`});
                 break;
             case 'image':
-                this.post.components.push({
-                    type: type,
-                    value: '',
-                    template: `<div class='panel panel-default post-component-panel'>
+                this.post.components.push({type: type, value: '', template: `<div class='panel panel-default post-component-panel'>
                                   <div class='panel-heading text-center'>
                                       <h1>Image <i class='fa fa-close' ng-click='vm.deleteComponent($index)'></i></h1>
                                         <div>
@@ -150,14 +135,10 @@ class CreatePostController {
                                   <div class='panel-body'>
                                     <input type='text' ng-model='vm.post.components[$index]["value"]'></input>
                                   </div>
-                              </div>`
-                });
+                              </div>`});
                 break;
             case 'googleDriveImage':
-                this.post.components.push({
-                    type: type,
-                    value: '',
-                    template: `<div class='panel panel-default post-component-panel'>
+                this.post.components.push({type: type, value: '', template: `<div class='panel panel-default post-component-panel'>
                                   <div class='panel-heading text-center'>
                                       <h1>Google Drive Image <i class='fa fa-close' ng-click='vm.deleteComponent($index)'></i></h1>
                                         <div>
@@ -168,14 +149,10 @@ class CreatePostController {
                                   <div class='panel-body'>
                                     <input type='text' ng-model='vm.post.components[$index]["value"]' placeholder='Google Drive Image ID'></input>
                                   </div>
-                              </div>`
-                });
+                              </div>`});
                 break;
             case 'iframe':
-                this.post.components.push({
-                    type: type,
-                    value: '',
-                    template: `<div class='panel panel-default post-component-panel'>
+                this.post.components.push({type: type, value: '', template: `<div class='panel panel-default post-component-panel'>
                                   <div class='panel-heading text-center'>
                                       <h1>Video <i class='fa fa-close' ng-click='vm.deleteComponent($index)'></i></h1>
                                         <div>
@@ -186,14 +163,12 @@ class CreatePostController {
                                   <div class='panel-body'>
                                     <input type='text' ng-model='vm.post.components[$index]["value"]' placeholder='Click share for a youtube video and get the embed URL'></input>
                                   </div>
-                              </div>`
-                });
+                              </div>`});
                 break;
         }
     }
 
     openSubmitPostModal() {
-        console.log('open submit post modal called');
         this.$uibModal.open({
             scope: this.$scope,
             show: true,
@@ -233,7 +208,7 @@ class CreatePostController {
             return accumulated;
         }, []).join('');
 
-        this.preview = `<div class='panel panel-default post-panel'>
+        this.post.preview = `<div class='panel panel-default post-panel'>
                       <div class='panel-heading text-center'>
                           <h1>${this.post.title}</h1>
                       </div>
@@ -241,7 +216,7 @@ class CreatePostController {
                           ${previewBody}
                       </div>
                   </div>`;
-        this.$localStorage.preview = this.preview;
+        this.post.body = previewBody;
     }
 
     decideThumbnail() {
