@@ -59,14 +59,14 @@
 .post-component-panel {
     @extend #panel-mixin;
     width: 90%;
-    margin-top: 10px;
     margin: 0 auto;
+    margin-top: 10px;
 }
 
 .post-panel {
     @extend #panel-mixin;
-    margin-top: 10px;
     margin: 0 auto;
+    margin-top: 10px;
     width: 90%;
 
     iframe,
