@@ -18,7 +18,10 @@
             <div ng-repeat='comment in vm.comments | orderBy: "comment_created_at"' ng-if='vm.comments && vm.comments.length > 0'>
                 <span class='comment' ng-class='$index % 2 === 0 ? "left" : "right"'>
                     <div class='comment-header text-center'>
-                        <h4 class='block no-margin' ng-bind='comment.username'></h4>
+                        <h4 class='inline no-margin' ng-bind='comment.username'></h4>
+                        <button class='pull-right delete-comment-button' ng-if='vm.showDeleteButton(comment)' ng-click='vm.deleteComment(comment)'>
+                            <i class='fa fa-close'></i>
+                        </button>
                         <time class='block comment-time' title='{{ comment.comment_created_at | amDateFormat: "dddd, MMMM Do YYYY, h:mm a" }}'>
                             {{ comment.comment_created_at | amCalendar }}
                         </time>
