@@ -1,12 +1,14 @@
 class SubmitPostController {
     /**@ngInject*/
-    constructor($uibModalInstance, $http, HOST, $localStorage, $rootScope, $state) {
+    constructor($uibModalInstance, $http, HOST, $localStorage, $rootScope, $state, socket, errorService) {
         this.$uibModalInstance = $uibModalInstance;
         this.$http = $http;
         this.HOST = HOST;
         this.$localStorage = $localStorage;
         this.$rootScope = $rootScope;
         this.$state = $state;
+        this.errorService = errorService;
+        this.socket = socket;
         this.password = '';
     }
 
@@ -40,22 +42,24 @@ class SubmitPostController {
                 })
                 .then((res) => {
                     if (res.data.success) {
+                        this.socket.emit('post-submitted');
                         this.$state.go('layout.posts');
                         this.submittingPost = false;
                     } else {
                         this.submittingPost = false;
-                        console.error(res);
-                        alert(`${res.data.error || 'An error occurred submitting your post, please make sure you are signed in and have added content to your post and try again.'}`);
+                        this.errorService.setAuthError(`${res.data.error || 'An error occurred submitting your post, please make sure you are signed in and have added content to your post and try again.'}`);
+                        this.errorService.openErrorModal();
                     }
                 })
                 .catch((err) => {
                     this.submittingPost = false;
-                    alert(`${err.data.error || err.error || 'An error occurred submitting your post, please make sure you are signed in and have added content to your post and try again.'}`);
-                    console.error(err);
+                    this.errorService.setAuthError(`${res.data.error || 'An error occurred submitting your post, please make sure you are signed in and have added content to your post and try again.'}`);
+                    this.errorService.openErrorModal();
                 });
         } else {
             this.submittingPost = false;
-            alert('Error submitting post, please sign in again and make sure that you have added content to your post.');
+            this.errorService.setAuthError('Error submitting post, please sign in again and make sure that you have added content to your post.');
+            this.errorService.openErrorModal();
         }
     }
 

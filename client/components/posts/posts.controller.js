@@ -1,11 +1,19 @@
 class PostsController {
     /**@ngInject*/
-    constructor($http, HOST, $scope, $state, $rootScope) {
+    constructor($http, HOST, $scope, $state, $rootScope, socket) {
         this.$http = $http;
         this.$scope = $scope;
         this.HOST = HOST;
         this.$state = $state;
+        this.socket = socket;
+        this.retrievePosts();
 
+        this.socket.on('update-posts', () => {
+            this.retrievePosts();
+            this.$scope.$evalAsync();
+        });
+    }
+    retrievePosts() {
         this.$http.get(`${this.HOST}/posts/retrieve-posts`)
             .then((posts) => {
                 if (posts.data.success) {

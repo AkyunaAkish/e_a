@@ -93,17 +93,14 @@ class PostController {
                 comment: comment,
                 admin: true
             }).then((commentRes) => {
-                console.log('commentRes', commentRes);
                 if (commentRes.data.success) {
                     this.socket.emit('comment-deleted');
                 } else {
-                    console.log('errrrrr', commentRes);
                     this.socket.emit('comment-deleted');
                     this.errorService.setAuthError(`An error occurred while deleting the comment, please confirm that you are signed in and try again.`);
                     this.errorService.openErrorModal();
                 }
             }).catch((err) => {
-                console.log('errrrrr', err);
                 this.socket.emit('comment-deleted');
                 this.errorService.setAuthError(`An error occurred while deleting the comment, please confirm that you are signed in and try again.`);
                 this.errorService.openErrorModal();
@@ -114,17 +111,14 @@ class PostController {
                 comment: comment,
                 admin: false
             }).then((commentRes) => {
-                console.log('commentRes', commentRes);
                 if (commentRes.data.success) {
                     this.socket.emit('comment-deleted');
                 } else {
-                    console.log('errrrrr', commentRes);
                     this.socket.emit('comment-deleted');
                     this.errorService.setAuthError(`An error occurred while deleting the comment, please confirm that you are signed in and try again.`);
                     this.errorService.openErrorModal();
                 }
             }).catch((err) => {
-                console.log('errrrrr', err);
                 this.socket.emit('comment-deleted');
                 this.errorService.setAuthError(`An error occurred while deleting the comment, please confirm that you are signed in and try again.`);
                 this.errorService.openErrorModal();
