@@ -91,7 +91,7 @@ class CreatePostController {
                                       </div>
                                   </div>
                                   <div class='panel-body'>
-                                      <input type='text' ng-model='vm.post.components[$index]["value"]'></input>
+                                      <input type='text' ng-blur='true' ng-model='vm.post.components[$index]["value"]'></input>
                                   </div>
                               </div>`});
                 break;
@@ -105,7 +105,7 @@ class CreatePostController {
                                         </div>
                                   </div>
                                   <div class='panel-body'>
-                                    <textarea ng-model='vm.post.components[$index]["value"]'></textarea>
+                                    <textarea ng-blur='true' ng-model='vm.post.components[$index]["value"]'></textarea>
                                   </div>
                               </div>`});
                 break;
@@ -119,7 +119,7 @@ class CreatePostController {
                                   </div>
                                   </div>
                                   <div class='panel-body'>
-                                    <input type='text' ng-model='vm.post.components[$index]["value"]'></input>
+                                    <input type='text' ng-blur='true' ng-model='vm.post.components[$index]["value"]'></input>
                                   </div>
                               </div>`});
                 break;
@@ -133,7 +133,7 @@ class CreatePostController {
                                         </div>
                                   </div>
                                   <div class='panel-body'>
-                                    <input type='text' ng-model='vm.post.components[$index]["value"]'></input>
+                                    <input type='text' ng-blur='true' ng-model='vm.post.components[$index]["value"]'></input>
                                   </div>
                               </div>`});
                 break;
@@ -143,11 +143,11 @@ class CreatePostController {
                                       <h1>Google Drive Image <i class='fa fa-close' ng-click='vm.deleteComponent($index)'></i></h1>
                                         <div>
                                           <label>Update Position</label>
-                                            <select ng-model='vm.ind[$index]' ng-init='vm.ind[$index] = $index' ng-options='ind for ind in vm.range(0, vm.post.components.length-1)' ng-change='vm.updatePosition($index, vm.ind[$index]);vm.ind[$index] = $index'></select>
+                                            <select ng-model='vm.ind[$index]' ng-blur='true' ng-init='vm.ind[$index] = $index' ng-options='ind for ind in vm.range(0, vm.post.components.length-1)' ng-change='vm.updatePosition($index, vm.ind[$index]);vm.ind[$index] = $index'></select>
                                         </div>
                                   </div>
                                   <div class='panel-body'>
-                                    <input type='text' ng-model='vm.post.components[$index]["value"]' placeholder='Google Drive Image ID'></input>
+                                    <input type='text' ng-blur='true' ng-model='vm.post.components[$index]["value"]' placeholder='Google Drive Image ID'></input>
                                   </div>
                               </div>`});
                 break;
@@ -161,7 +161,7 @@ class CreatePostController {
                                         </div>
                                   </div>
                                   <div class='panel-body'>
-                                    <input type='text' ng-model='vm.post.components[$index]["value"]' placeholder='Click share for a youtube video and get the embed URL'></input>
+                                    <input type='text' ng-blur='true' ng-model='vm.post.components[$index]["value"]' placeholder='Click share for a youtube video and get the embed URL'></input>
                                   </div>
                               </div>`});
                 break;

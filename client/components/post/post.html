@@ -49,7 +49,7 @@
                 <div class='comment-form'>
                     <div class='input-container'>
                         <div class='form-group text-center'>
-                            <input type='text' class='form-control text-left' placeholder='Comment' name='comment' ng-model='vm.commentObj.comment' required/>
+                            <input type='text' ng-blur='true' class='form-control text-left' placeholder='Comment' name='comment' ng-model='vm.commentObj.comment' required/>
                         </div>
                         <div class='form-footer text-center'>
                             <button class='btn btn-lg' type='submit' ng-disabled='commentForm.$invalid || !vm.session'>
