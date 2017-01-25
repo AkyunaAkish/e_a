@@ -6,14 +6,12 @@ export default ['$timeout', ($timeout) => {
             element.append(defocusElement);
 
             element.on('keydown', (event) => {
-                console.log('on keydown fired', event.keyCode);
                 if (event.keyCode === 13) {
                     event.preventDefault();
                     $timeout(() => {
                         defocusElement.focus();
                         element.triggerHandler('submit');
                     }, 0, false);
-                    console.log('keyCode13!!');
                 }
             });
         }

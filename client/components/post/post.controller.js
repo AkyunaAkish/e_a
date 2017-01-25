@@ -87,6 +87,7 @@ class PostController {
     }
 
     deleteComment(comment) {
+        this.isCommentOwner = !!(this.hasSession && this.$localStorage.session.user.username === comment.username);
         if (!!(this.hasSession && this.isAdmin)) {
             this.$http.post(`${this.HOST}/posts/delete-comment`, {
                 session: this.$localStorage.session,
@@ -101,6 +102,7 @@ class PostController {
                     this.errorService.openErrorModal();
                 }
             }).catch((err) => {
+
                 this.socket.emit('comment-deleted');
                 this.errorService.setAuthError(`An error occurred while deleting the comment, please confirm that you are signed in and try again.`);
                 this.errorService.openErrorModal();
