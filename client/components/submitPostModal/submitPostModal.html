@@ -4,9 +4,9 @@
 </header>
 
 <section class='modalFormSection'>
-    <form name='form' ng-submit='vm.submitPost()' novalidate>
+    <form name='form' ng-submit='vm.submitPost()' form-blur novalidate>
         <label for='amount'>Password
-            <input class='form-control' ng-blur='true' type='password' placeholder='Password' ng-model='vm.password' required/>
+            <input class='form-control' type='password' placeholder='Password' ng-model='vm.password' required/>
         </label>
         <div ng-if='vm.submittingPost'>
           <div class='loader'></div>
