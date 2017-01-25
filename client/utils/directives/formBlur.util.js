@@ -14,14 +14,16 @@ export default () => {
             // });
 
             element.on('submit', () => {
+              console.log('submit...');
                 defocusElement.focus();
                 textFields.blur();
                 $('input').blur();
             });
 
-            element.on('keyup', (event) => {
+            $('body').on('keyup', (event) => {
                 if (event.keyCode === 13) {
                     defocusElement.focus();
+                    console.log('keyCode13!!');
                     textFields.blur();
                     $('input').blur();
                 }
