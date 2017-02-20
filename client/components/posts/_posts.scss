@@ -16,10 +16,41 @@
         time {
             color: $sky;
         }
+
+        h1,
+        time {
+            margin-bottom: 7px !important;
+        }
     }
 
     img {
         height: 300px;
+    }
+
+    .post-like-container {
+        button {
+            background: none;
+            border: none;
+            outline: none;
+
+            span {
+                color: $skyT;
+            }
+
+            p {
+                color: white;
+            }
+
+            &:hover {
+                span {
+                    color: white;
+                }
+
+                p {
+                    color: $skyT;
+                }
+            }
+        }
     }
 }
 

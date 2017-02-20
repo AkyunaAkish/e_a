@@ -22,6 +22,12 @@
                                 <time title='{{ post.post_created_at | amDateFormat: "dddd, MMMM Do YYYY, h:mm a" }}'>
                                     {{ post.post_created_at | amCalendar }}
                                 </time>
+                                <div class='text-center post-like-container'>
+                                    <button class='btn' ng-click='vm.like(post, $event)'>
+                                        <span class='glyphicon glyphicon-thumbs-up inline'></span>
+                                        <p class='inline' ng-bind='post.likes'></p>
+                                    </button>
+                                </div>
                             </div>
                             <div class='panel-body text-center'>
                                 <img ng-src='{{post.thumbnail_url}}'>

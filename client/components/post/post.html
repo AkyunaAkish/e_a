@@ -1,10 +1,16 @@
-<div class='post-container' compile>
+<div class='post-container'>
     <div class='panel panel-default post-panel'>
         <div class='panel-heading text-center'>
             <h1 ng-bind='vm.post.title'></h1>
             <time class='block post-time' title='{{ vm.post.post_created_at | amDateFormat: "dddd, MMMM Do YYYY, h:mm a" }}'>
                 {{ vm.post.post_created_at | amCalendar }}
             </time>
+            <div class='text-center post-like-container'>
+                <button class='btn' ng-click='vm.like()'>
+                    <span class='glyphicon glyphicon-thumbs-up inline'></span>
+                    <p class='inline' ng-bind='vm.likes'></p>
+                </button>
+            </div>
         </div>
         <div class='panel-body' ng-bind-html='vm.trustHTML(vm.post.content)'></div>
     </div>

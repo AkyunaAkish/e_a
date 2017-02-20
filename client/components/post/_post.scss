@@ -25,6 +25,41 @@
             width: 70%;
             height: 400px;
         }
+
+        h1,
+        time {
+            margin-bottom: 7px !important;
+        }
+
+        time {
+            color: white;
+        }
+
+        .post-like-container {
+            button {
+                background: none;
+                border: none;
+                outline: none;
+
+                span {
+                    color: $skyT;
+                }
+
+                p {
+                    color: white;
+                }
+
+                &:hover {
+                    span {
+                        color: white;
+                    }
+
+                    p {
+                        color: $skyT;
+                    }
+                }
+            }
+        }
     }
 
     .post-time {

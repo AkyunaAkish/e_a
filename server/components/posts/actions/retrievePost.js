@@ -1,5 +1,5 @@
 const knex = require('../../../db_config/knex');
-const bcrypt = require('bcrypt');
+const retrieveLikes = require('./retrieveLikes.js');
 
 module.exports = (id) => {
     return new Promise((resolve, reject) => {

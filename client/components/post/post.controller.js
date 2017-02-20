@@ -1,11 +1,12 @@
 class PostController {
     /**@ngInject*/
-    constructor($http, HOST, socket, $scope, $state, errorService, authService, $sce, $localStorage) {
+    constructor($http, HOST, socket, $scope, $state, errorService, authService, likeService, $sce, $localStorage) {
         this.$http = $http;
         this.$scope = $scope;
         this.$sce = $sce;
         this.$localStorage = $localStorage;
         this.errorService = errorService;
+        this.likeService = likeService;
         this.authService = authService;
         this.HOST = HOST;
         this.socket = socket;
@@ -26,6 +27,7 @@ class PostController {
             if (post.data.success) {
                 this.post = post.data.success;
                 this.retrieveComments();
+                this.retrieveLikes();
             } else {
                 this.$state.go('layout.posts');
             }
@@ -35,6 +37,11 @@ class PostController {
 
         this.socket.on('update-comments', () => {
             this.retrieveComments();
+            this.$scope.$evalAsync();
+        });
+
+        this.socket.on('update-likes', () => {
+            this.retrieveLikes();
             this.$scope.$evalAsync();
         });
     }
@@ -68,6 +75,18 @@ class PostController {
         this.$http.get(`${this.HOST}/posts/retrieve-comments/${this.$state.params.id}`).then((comments) => {
             if (comments.data.success) {
                 this.comments = comments.data.success;
+            } else {
+                this.$state.go('layout.posts');
+            }
+        }).catch((err) => {
+            this.$state.go('layout.posts');
+        });
+    }
+
+    retrieveLikes() {
+        this.$http.get(`${this.HOST}/posts/retrieve-likes/${this.$state.params.id}`).then((likes) => {
+            if (likes.data.success) {
+                this.likes = likes.data.success;
             } else {
                 this.$state.go('layout.posts');
             }
@@ -128,9 +147,19 @@ class PostController {
         }
     }
 
+    like() {
+        this.likeService.like(this.post)
+            .then((likeRes) => {
+                this.socket.emit('like-event');
+            })
+            .catch((err) => {
+                this.socket.emit('like-event');
+            });
+    }
+
     trustHTML(src) {
         return this.$sce.trustAsHtml(src);
     }
-};
+}
 
 export default PostController;

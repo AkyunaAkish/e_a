@@ -1,5 +1,5 @@
 const app = require('../server.js');
-const debug = require('debug')('spacecadevs:server');
+const debug = require('debug')('e_a:server');
 const http = require('http');
 const io = require('../lib/io');
 

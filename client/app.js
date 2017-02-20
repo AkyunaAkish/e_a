@@ -22,6 +22,7 @@ import authService from './services/auth.service.js';
 import signupService from './services/signup.service.js';
 import signinService from './services/signin.service.js';
 import errorService from './services/error.service.js';
+import likeService from './services/like.service.js';
 
 import Router from './routes.js';
 import stateChange from './utils/stateChange.util.js';
@@ -47,6 +48,7 @@ angular.module('ElenaAkish', [
     .service('authService', authService)
     .service('signupService', signupService)
     .service('signinService', signinService)
+    .service('likeService', likeService)
     .directive('compile', compileDirective)
     .directive('blur', blurDirective)
     .directive('formBlur', formBlurDirective)

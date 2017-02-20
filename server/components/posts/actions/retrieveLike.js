@@ -7,15 +7,15 @@ module.exports = (req, res, user) => {
                 user_id: user.id,
                 post_id: req.body.post.id
             })
-            .del()
-            .then((delRes) => {
-                resolve({
-                    success: delRes
-                });
+            .first()
+            .count()
+            .then((like) => {
+                resolve(like.count);
             })
             .catch((err) => {
                 reject({
-                    error: err
+                    error: 'An error occurred when attempting to retrieve like.',
+                    reason: err
                 });
             });
     });

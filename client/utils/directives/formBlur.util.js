@@ -1,7 +1,8 @@
 export default ['$timeout', ($timeout) => {
     return {
         restrict: 'A',
-        link: (scope, element) => {
+        require: '^form',
+        link: (scope, element, attrs, ctrl) => {
             let defocusElement = angular.element('<input style="opacity: 0; width: 0" type="button">');
             element.append(defocusElement);
 
@@ -10,7 +11,7 @@ export default ['$timeout', ($timeout) => {
                     event.preventDefault();
                     $timeout(() => {
                         defocusElement.focus();
-                        element.triggerHandler('submit');
+                        // element.triggerHandler('submit');
                     }, 0, false);
                 }
             });
