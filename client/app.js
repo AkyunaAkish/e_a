@@ -13,6 +13,7 @@ import postDirective from './components/post/post.directive.js';
 import signupDirective from './components/signup/signup.directive.js';
 import signinDirective from './components/signin/signin.directive.js';
 import createPostDirective from './components/createPost/createPost.directive.js';
+import settingsDirective from './components/settings/settings.directive.js';
 import compileDirective from './utils/directives/compile.util.js';
 import blurDirective from './utils/directives/blur.util.js';
 import formBlurDirective from './utils/directives/formBlur.util.js';
@@ -56,6 +57,7 @@ angular.module('ElenaAkish', [
     .directive('navbarDirective', navbarDirective)
     .directive('postsDirective', postsDirective)
     .directive('postDirective', postDirective)
+    .directive('settingsDirective', settingsDirective)
     .directive('signupDirective', signupDirective)
     .directive('signinDirective', signinDirective)
     .directive('createPostDirective', createPostDirective)

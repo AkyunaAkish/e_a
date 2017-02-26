@@ -22,6 +22,9 @@
             <li ng-if='vm.session && vm.$localStorage.session.user.username == "Elena Akish"'>
                 <a ui-sref-active='activeAnchor' ui-sref='layout.createPost' blur>Create Post</a>
             </li>
+            <li ng-if='vm.session'>
+                <a ui-sref-active='activeAnchor' ui-sref='layout.settings' blur>Settings</a>
+            </li>
             <li ng-if='vm.session' ng-click='vm.signout()'>
                 <a blur>Sign Out</a>
             </li>

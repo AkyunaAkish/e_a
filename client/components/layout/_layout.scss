@@ -17,6 +17,10 @@ html {
 }
 
 .inline {
+    display: inline !important;
+}
+
+.inline-block {
     display: inline-block !important;
 }
 
@@ -26,6 +30,37 @@ html {
 
 .center {
     margin: 0 auto;
+}
+
+.modal-panel {
+    border: none;
+    box-shadow: none;
+
+    .panel-heading {
+        background: $dark;
+        color: $sky;
+        padding: 0;
+
+        button {
+            float: right;
+            background: none;
+            border: none;
+            color: $red;
+            font-size: 2em;
+        }
+    }
+
+    button,
+    h1 {
+        display: inline;
+    }
+
+    .panel-body {
+        h5 {
+            font-size: 2em;
+            color: $red;
+        }
+    }
 }
 
 embed,

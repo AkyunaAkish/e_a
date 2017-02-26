@@ -1,0 +1,34 @@
+<div class='panel panel-default modal-panel'>
+    <div class='panel-heading text-center'>
+        <h1>Update Email</h1>
+        <button ng-click='vm.closeModal()'>
+            <i class='fa fa-close'></i>
+        </button>
+    </div>
+    <div class='panel-body text-center'>
+        <h2>Update Email</h2>
+        <form form-blur novalidate='novalidate'>
+            <div class='email-update-form text-center'>
+                <ng-form name='emailUpdateForm'>
+                    <div class='input-container'>
+                        <div class='form-group'>
+                            <label for='email' class='block'>Update Email</label>
+                            <ng-messages class='block text-danger' for='emailUpdateForm.email.$error' ng-show='emailUpdateForm.email.$dirty'>
+                                <ng-message when='required'>
+                                    Cannot be blank
+                                </ng-message>
+                                <ng-message when='email'>
+                                    Please enter a valid email
+                                </ng-message>
+                            </ng-messages>
+                            <input type='email' class='form-control inline' placeholder='Email' name='email' ng-model='vm.newEmail' required/>
+                            <button class='btn btn-primary inline' type='submit' ng-disabled='emailUpdateForm.$invalid'>
+                                Update
+                            </button>
+                        </div>
+                    </div>
+                </ng-form>
+            </div>
+        </form>
+    </div>
+</div>

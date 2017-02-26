@@ -1,0 +1,31 @@
+<div class='panel panel-default modal-panel'>
+    <div class='panel-heading text-center'>
+        <h1>Update Username</h1>
+        <button ng-click='vm.closeModal()'>
+            <i class='fa fa-close'></i>
+        </button>
+    </div>
+    <div class='panel-body text-center'>
+        <h2>Update Username</h2>
+        <form form-blur novalidate='novalidate'>
+            <div class='username-update-form text-center'>
+                <ng-form name='usernameUpdateForm'>
+                    <div class='input-container'>
+                        <div class='form-group'>
+                            <label for='username' class='block'>Update Username</label>
+                            <ng-messages class='block text-danger' for='usernameUpdateForm.username.$error' ng-show='usernameUpdateForm.username.$dirty'>
+                                <ng-message when='required'>
+                                    Cannot be blank
+                                </ng-message>
+                            </ng-messages>
+                            <input type='text' class='form-control inline' placeholder='Username' name='username' ng-model='vm.newUsername' required/>
+                            <button class='btn btn-primary inline' type='submit' ng-disabled='usernameUpdateForm.$invalid'>
+                                Update
+                            </button>
+                        </div>
+                    </div>
+                </ng-form>
+            </div>
+        </form>
+    </div>
+</div>

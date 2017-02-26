@@ -22,6 +22,11 @@ export default (['$stateProvider', '$urlRouterProvider', '$locationProvider',
                 template: '<signin-directive></signin-directive>',
                 mustBeLoggedOut: true
             })
+            .state('layout.settings', {
+                url: '/settings',
+                template: '<settings-directive></settings-directive>',
+                mustBeLoggedIn: true
+            })
             .state('layout.createPost', {
                 url: '/createPost',
                 template: '<create-post-directive></create-post-directive>',

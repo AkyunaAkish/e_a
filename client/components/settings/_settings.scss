@@ -1,0 +1,29 @@
+@import '../../sass/utils/variables';
+@import '../../sass/utils/extendables';
+
+.settings-panel {
+    width: 70%;
+    margin: 10px auto 0;
+
+    .panel-heading {
+        background: $dark;
+        color: $sky;
+        font-size: 1.5em;
+        padding: 0;
+    }
+
+    .settings-loader {
+        margin: 0 auto 50px;
+    }
+
+    .settings-section {
+        button {
+          margin: 10px;
+        }
+    }
+}
+@media screen and (max-width: 850px) {
+    .settings-panel {
+        width: 90%;
+    }
+}
