@@ -6,8 +6,7 @@
         </button>
     </div>
     <div class='panel-body text-center'>
-        <h2>Update Email</h2>
-        <form form-blur novalidate='novalidate'>
+        <form form-blur ng-submit='vm.updateEmail()' novalidate='novalidate'>
             <div class='email-update-form text-center'>
                 <ng-form name='emailUpdateForm'>
                     <div class='input-container'>
@@ -17,11 +16,18 @@
                                 <ng-message when='required'>
                                     Cannot be blank
                                 </ng-message>
-                                <ng-message when='email'>
-                                    Please enter a valid email
+                                <ng-message when='pattern'>
+                                    Please enter a valid email(cannot be capitalized)
                                 </ng-message>
                             </ng-messages>
-                            <input type='email' class='form-control inline' placeholder='Email' name='email' ng-model='vm.newEmail' required/>
+                            <input
+                            type='email'
+                            class='form-control inline'
+                            placeholder='{{vm.user.email}}'
+                            name='email'
+                            ng-model='vm.newEmail'
+                            ng-pattern='/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/'
+                            required/>
                             <button class='btn btn-primary inline' type='submit' ng-disabled='emailUpdateForm.$invalid'>
                                 Update
                             </button>

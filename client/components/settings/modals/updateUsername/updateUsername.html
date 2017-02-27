@@ -6,8 +6,7 @@
         </button>
     </div>
     <div class='panel-body text-center'>
-        <h2>Update Username</h2>
-        <form form-blur novalidate='novalidate'>
+        <form form-blur ng-submit='vm.updateUsername()' novalidate='novalidate'>
             <div class='username-update-form text-center'>
                 <ng-form name='usernameUpdateForm'>
                     <div class='input-container'>
@@ -18,7 +17,7 @@
                                     Cannot be blank
                                 </ng-message>
                             </ng-messages>
-                            <input type='text' class='form-control inline' placeholder='Username' name='username' ng-model='vm.newUsername' required/>
+                            <input type='text' class='form-control inline' placeholder='{{vm.user.username}}' name='username' ng-model='vm.newUsername' required/>
                             <button class='btn btn-primary inline' type='submit' ng-disabled='usernameUpdateForm.$invalid'>
                                 Update
                             </button>

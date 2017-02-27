@@ -10,7 +10,6 @@ class SettingsController {
         this.$scope = $scope;
         this.$localStorage = $localStorage;
         this.user = this.$localStorage.session.user;
-        console.log('this.user', this.user);
     }
 
     updateEmail() {
