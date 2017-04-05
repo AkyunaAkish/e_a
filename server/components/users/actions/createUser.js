@@ -8,7 +8,15 @@ module.exports = (req, res) => {
             req.body.email &&
             typeof req.body.email === 'string' &&
             req.body.password &&
-            typeof req.body.password === 'string') {
+            typeof req.body.password === 'string' &&
+            req.body.securityQuestionOne &&
+            typeof req.body.securityQuestionOne === 'string' &&
+            req.body.securityAnswerOne &&
+            typeof req.body.securityAnswerOne === 'string' &&
+            req.body.securityQuestionTwo &&
+            typeof req.body.securityQuestionTwo === 'string' &&
+            req.body.securityAnswerTwo &&
+            typeof req.body.securityAnswerTwo === 'string') {
             const password_hash = bcrypt.hashSync(req.body.password, 10);
             const formattedUsername = req.body.username.split(' ').map((curr) => {
                 return curr[0].toUpperCase() + curr.slice(1).toLowerCase();
@@ -20,6 +28,10 @@ module.exports = (req, res) => {
                     email: req.body.email,
                     password: password_hash,
                     admin: formattedUsername === 'Elena Akish' ? true : false,
+                    security_question_one: req.body.securityQuestionOne,
+                    security_answer_one: req.body.securityAnswerOne,
+                    security_question_two: req.body.securityQuestionTwo,
+                    security_answer_two: req.body.securityAnswerTwo,
                     user_created_at: Date.now()
                 }).returning('*')
                 .then((user) => {

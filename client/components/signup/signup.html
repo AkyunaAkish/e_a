@@ -52,6 +52,46 @@
                                     <input type='password' class='form-control' ng-pattern='{{vm.signupObj.password}}' placeholder='Confirm password' name='confirmPassword' ng-model='vm.signupObj.confirmPassword' required/>
                                 </label>
                             </div>
+                            <div class='form-group'>
+                                <label for='securityQuestionOne'>Security Question One
+                                    <ng-messages for='signupForm.securityQuestionOne.$error' ng-show='signupForm.securityQuestionOne.$dirty'>
+                                        <ng-message when='required'>
+                                            Please enter your first security question
+                                        </ng-message>
+                                    </ng-messages>
+                                    <input type='text' class='form-control' placeholder='Security Question One' name='confirmPassword' ng-model='vm.signupObj.securityQuestionOne' required/>
+                                </label>
+                            </div>
+                            <div class='form-group'>
+                                <label for='securityAnswerOne'>Security Answer One
+                                    <ng-messages for='signupForm.securityAnswerOne.$error' ng-show='signupForm.securityAnswerOne.$dirty'>
+                                        <ng-message when='required'>
+                                            Please enter your first security answer
+                                        </ng-message>
+                                    </ng-messages>
+                                    <input type='text' class='form-control' placeholder='Security Answer One' name='confirmPassword' ng-model='vm.signupObj.securityAnswerOne' required/>
+                                </label>
+                            </div>
+                            <div class='form-group'>
+                                <label for='securityQuestionTwo'>Security Question Two
+                                    <ng-messages for='signupForm.securityQuestionTwo.$error' ng-show='signupForm.securityQuestionTwo.$dirty'>
+                                        <ng-message when='required'>
+                                            Please enter your second security question
+                                        </ng-message>
+                                    </ng-messages>
+                                    <input type='text' class='form-control' placeholder='Security Question Two' name='confirmPassword' ng-model='vm.signupObj.securityQuestionTwo' required/>
+                                </label>
+                            </div>
+                            <div class='form-group'>
+                                <label for='securityAnswerTwo'>Security Answer Two
+                                    <ng-messages for='signupForm.securityAnswerTwo.$error' ng-show='signupForm.securityAnswerTwo.$dirty'>
+                                        <ng-message when='required'>
+                                            Please enter your second security answer
+                                        </ng-message>
+                                    </ng-messages>
+                                    <input type='text' class='form-control' placeholder='Security Answer Two' name='confirmPassword' ng-model='vm.signupObj.securityAnswerTwo' required/>
+                                </label>
+                            </div>
 
                             <div class='form-footer text-center'>
                                 <button class='btn' ng-if='!vm.signingUpUser' type='submit' ng-disabled='signupForm.$invalid'>
