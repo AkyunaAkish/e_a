@@ -11,22 +11,22 @@
 
 <div class='container-fluid posts-container'>
     <div class='row-fluid'>
-
-        <div class='col-lg-4' dir-paginate='post in vm.posts | filter: vm.searchPosts | orderBy: vm.postOrder | itemsPerPage: 9' pagination-id='postsPaginate'>
+        <div class='col-lg-4' dir-paginate='post in vm.posts | filter: vm.searchPosts | orderBy: vm.postOrder | itemsPerPage: 9'
+            pagination-id='postsPaginate'>
             <a ng-href='/posts/{{post.id}}'>
                 <div class='item'>
                     <div class='content'>
                         <div class='panel panel-default post-repeat-panel'>
                             <div class='panel-heading text-center'>
                                 <h1 ng-bind='post.title'></h1>
-                                <time title='{{ post.post_created_at | amDateFormat: "dddd, MMMM Do YYYY, h:mm a" }}'>
-                                    {{ post.post_created_at | amCalendar }}
-                                </time>
                                 <div class='text-center post-like-container'>
-                                    <button class='btn' ng-click='vm.like(post, $event)'>
+                                    <button class='btn inline' ng-click='vm.like(post, $event)'>
                                         <span class='glyphicon glyphicon-thumbs-up inline'></span>
                                         <p class='inline' ng-bind='post.likes'></p>
                                     </button>
+                                    <time title='{{ post.post_created_at | amDateFormat: "dddd, MMMM Do YYYY, h:mm a" }}'>
+                                        {{ post.post_created_at | amCalendar }}
+                                    </time>
                                 </div>
                             </div>
                             <div class='panel-body text-center'>

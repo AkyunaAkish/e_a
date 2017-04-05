@@ -1,51 +1,38 @@
 @import '../../sass/utils/variables';
 @import '../../sass/utils/extendables';
-
 .posts-container {
-    margin-top: 20px;
-
-    .panel-heading {
-        background: $purple;
-        padding: 5px;
-
-        h1 {
-            color: white;
-            margin: 0;
-        }
-
-        time {
-            color: $sky;
-        }
-
-        h1,
-        time {
-            margin-bottom: 7px !important;
-        }
+    @extend #panel-mixin;
+    p {
+        font-size: 1.2em;
     }
-
-    img {
-        height: 300px;
+    iframe {
+        width: 70%;
+        height: 400px;
     }
-
+    h1,
+    time {
+        margin-bottom: 7px !important;
+    }
+    time {
+        color: white;
+    }
     .post-like-container {
         button {
             background: none;
             border: none;
             outline: none;
-
+            margin: 0;
+            padding: 0;
             span {
                 color: $skyT;
             }
-
             p {
                 color: white;
             }
-
             &:hover {
                 span {
                     color: white;
                 }
-
                 p {
                     color: $skyT;
                 }
@@ -57,20 +44,16 @@
 .search-panel {
     margin: 5px auto 0;
     width: 70%;
-
+    border: none;
     .fa-search {
         font-size: 2em;
     }
-
     .panel-body {
-        background: $dark;
         padding: 5px 0;
-
         h1 {
-            color: $sky;
+            color: $dark;
             margin-right: 10px;
         }
-
         .form-control {
             margin: 0 auto;
             width: 45%;
@@ -82,37 +65,32 @@
 .posts-container {
     * {
         text-decoration: none;
-
         &:link {
             text-decoration: none;
         }
-
         &:visited {
             text-decoration: none;
         }
-
         &:hover {
             text-decoration: none;
         }
-
         &:active {
             text-decoration: none;
         }
     }
 }
+
 @media screen and (max-width: 850px) {
     .posts-container {
         img {
             height: 200px;
         }
     }
-
     .search-panel {
         .panel-body {
             h1 {
                 display: block !important;
             }
-
             .form-control {
                 width: 90%;
                 display: block !important;
