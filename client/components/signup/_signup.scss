@@ -1,6 +1,5 @@
 @import '../../sass/utils/variables';
 @import '../../sass/utils/extendables';
-
 .signup-panel {
     width: 70%;
     margin: 10px auto 0;
@@ -11,15 +10,14 @@
         font-size: 1.5em;
         padding: 0;
     }
-
     .signup-loader {
         margin: 0 auto 50px;
     }
-
     .signup-form {
         @extend #auth-form;
     }
 }
+
 @media screen and (max-width: 850px) {
     .signup-panel {
         width: 90%;

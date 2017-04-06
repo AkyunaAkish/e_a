@@ -146,6 +146,20 @@ class authService {
         return deferred.promise;
     }
 
+    retrieveUserData(email) {
+        return this.$http.get(`${this.HOST}/users/retrieve-user-data/${email}`)
+            .then((userRes) => {
+                if (userRes.data && userRes.data.success) {
+                    return userRes.data.success || 'error';
+                } else {
+                    return userRes.data.error || 'error';
+                }
+            })
+            .catch((err) => {
+                return err.data || err;
+            });
+    }
+
 };
 
 export default authService;

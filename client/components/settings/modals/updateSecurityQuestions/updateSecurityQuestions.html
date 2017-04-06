@@ -6,6 +6,56 @@
         </button>
     </div>
     <div class='panel-body text-center'>
-        <h2>Update Security Questions</h2>
+        <form form-blur ng-submit='vm.updateSecurityQuestions()' novalidate='novalidate'>
+            <div class='security-question-update-form text-center'>
+                <ng-form name='securityQuestionUpdateForm'>
+                    <div class='input-container'>
+                        <div class='form-group'>
+                            <label for='securityQuestionOne' class='block'>Update Security Question One</label>
+                            <ng-messages class='block text-danger' for='securityQuestionUpdateForm.securityQuestionOne.$error' ng-show='securityQuestionUpdateForm.securityQuestionOne.$dirty'>
+                                <ng-message when='required'>
+                                    Cannot be blank
+                                </ng-message>
+                            </ng-messages>
+                            <input type='text' class='form-control inline' placeholder=' Security Question One' name='SecurityQuestionOne'
+                                ng-model='vm.securityQuestionOne' required/>
+                        </div>
+                        <div class='form-group'>
+                            <label for='securityAnswerOne' class='block'>Update Security Answer One</label>
+                            <ng-messages class='block text-danger' for='securityAnswerUpdateForm.securityAnswerOne.$error' ng-show='securityAnswerUpdateForm.securityAnswerOne.$dirty'>
+                                <ng-message when='required'>
+                                    Cannot be blank
+                                </ng-message>
+                            </ng-messages>
+                            <input type='text' class='form-control inline' placeholder=' Security Answer One' name='SecurityAnswerOne'
+                                ng-model='vm.securityAnswerOne' required/>
+                        </div>
+                        <div class='form-group'>
+                            <label for='securityQuestionTwo' class='block'>Update Security Question Two</label>
+                            <ng-messages class='block text-danger' for='securityQuestionUpdateForm.securityQuestionTwo.$error' ng-show='securityQuestionUpdateForm.securityQuestionTwo.$dirty'>
+                                <ng-message when='required'>
+                                    Cannot be blank
+                                </ng-message>
+                            </ng-messages>
+                            <input type='text' class='form-control inline' placeholder=' Security Question Two' name='SecurityQuestionTwo'
+                                ng-model='vm.securityQuestionTwo' required/>
+                        </div>
+                        <div class='form-group'>
+                            <label for='securityAnswerTwo' class='block'>Update Security Answer Two</label>
+                            <ng-messages class='block text-danger' for='securityAnswerUpdateForm.securityAnswerTwo.$error' ng-show='securityAnswerUpdateForm.securityAnswerTwo.$dirty'>
+                                <ng-message when='required'>
+                                    Cannot be blank
+                                </ng-message>
+                            </ng-messages>
+                            <input type='text' class='form-control inline' placeholder=' Security Answer Two' name='SecurityAnswerTwo'
+                                ng-model='vm.securityAnswerTwo' required/>
+                        </div>
+                        <button class='btn btn-primary block center' type='submit' ng-disabled='securityQuestionUpdateForm.$invalid'>
+                            Update
+                        </button>
+                    </div>
+                </ng-form>
+            </div>
+        </form>
     </div>
 </div>

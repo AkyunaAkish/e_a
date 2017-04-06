@@ -1,67 +1,62 @@
 #auth-form {
     .form-group {
+        width: 50%;
+        margin: 0;
+        float: left;
         label {
             width: 100%;
             text-align: center;
             color: $dark;
-            font-size: 1.2em;
-
+            font-size: 12px;
             ng-message {
                 display: block;
                 color: $red;
             }
-
             .form-control {
-                width: 50%;
+                width: 80%;
                 margin: 0 auto;
             }
         }
     }
-
     .form-footer {
         button {
             background: $dark;
             color: $sky;
             width: 25%;
         }
+        clear: both;
+        margin-top: 5px;
     }
 }
 
 #panel-mixin {
     .panel-heading {
         background: $dark;
-
         h1 {
             color: $sky;
             margin: 0;
         }
-
         i {
             color: $red;
         }
-
         button {
             background: $dark;
             color: $sky;
             margin: 5px;
         }
-
         label {
             color: white;
             display: block;
         }
-
         select {
             width: 25%;
             text-align: center;
         }
-
         iframe,
         img {
             margin: 0 auto;
         }
     }
-
     .panel-body {
         input,
         textarea {
@@ -72,6 +67,7 @@
         }
     }
 }
+
 @media screen and (max-width: 850px) {
     .form-group {
         label {
@@ -80,7 +76,6 @@
             }
         }
     }
-
     .form-footer {
         button {
             width: 50%;
