@@ -9,7 +9,7 @@ class UpdateSecurityQuestionsController {
         this.errorService = errorService;
         this.user = this.$localStorage.session.user;
 
-        this.authService.retrieveUserData(this.user.email)
+        this.authService.retrieveUserData(this.user.email, 'false')
             .then((userData) => {
                 this.securityQuestionOne = userData.security_question_one || '';
                 this.securityQuestionTwo = userData.security_question_two || '';

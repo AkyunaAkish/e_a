@@ -16,7 +16,10 @@ class SignupController {
             .then((res) => {
                 this
                     .authService
-                    .setSession({user: res.user, token: res.token});
+                    .setSession({
+                        user: res.user,
+                        token: res.token
+                    });
 
                 this.signupObj = {};
                 this.signingUpUser = false;
@@ -27,11 +30,11 @@ class SignupController {
             .catch((err) => {
                 if (err.data && err.data.reason && err.data.reason.psql_error && err.data.reason.psql_error.code == 23505) {
                     let field = err
-                        .data
-                        .reason
-                        .psql_error
-                        .constraint
-                        .split('_')[1];
+                                    .data
+                                    .reason
+                                    .psql_error
+                                    .constraint
+                                    .split('_')[1];
                     this
                         .errorService
                         .setAuthError(`A user with that ${field} already exists.`);

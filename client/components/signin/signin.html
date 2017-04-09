@@ -29,11 +29,13 @@
                                     <input type='password' class='form-control' placeholder='Password' name='password' ng-model='vm.signinObj.password' required/>
                                 </label>
                             </div>
-
                             <div class='form-footer text-center'>
                                 <button class='btn' ng-if='!vm.signingInUser' type='submit' ng-disabled='signinForm.$invalid'>
                                     Submit
                                 </button>
+                                <a class='block pointer' ng-click='vm.openForgotPasswordModal()'>
+                                    Forgot Password
+                                </a>
                             </div>
                         </div>
                     </ng-form>

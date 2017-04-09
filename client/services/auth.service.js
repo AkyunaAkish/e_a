@@ -146,8 +146,8 @@ class authService {
         return deferred.promise;
     }
 
-    retrieveUserData(email) {
-        return this.$http.get(`${this.HOST}/users/retrieve-user-data/${email}`)
+    retrieveUserData(email, limit) {
+        return this.$http.get(`${this.HOST}/users/retrieve-user-data/${email}/${limit}`)
             .then((userRes) => {
                 if (userRes.data && userRes.data.success) {
                     return userRes.data.success || 'error';

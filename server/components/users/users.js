@@ -12,7 +12,7 @@ let updateUsernameController = require('./controllers/updateUsername.server.cont
 let updatePasswordController = require('./controllers/updatePassword.server.controller.js');
 let updateSecurityQuestionsAndAnswersController = require('./controllers/updateSecurityQuestionsAndAnswers.server.controller.js');
 
-router.get('/retrieve-user-data/:email', retrieveUserDataController);
+router.get('/retrieve-user-data/:email/:limit', retrieveUserDataController);
 router.post('/signup', signUpController);
 router.post('/signin', signInController);
 router.post('/validate-session', validateSessionController);

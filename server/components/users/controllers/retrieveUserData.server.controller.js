@@ -6,6 +6,11 @@ module.exports = (req, res) => {
             .then((userRes) => {
                 if (userRes.success) {
                     delete userRes.success.password;
+                    if (req.params.limit === 'true') {
+                        delete userRes.success.security_answer_one;
+                        delete userRes.success.security_answer_two;
+                        delete userRes.success.admin;
+                    }
                     res.json({
                         success: userRes.success
                     });

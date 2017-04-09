@@ -1,7 +1,10 @@
+import ForgotPasswordModalController from '../forgotPasswordModal/forgotPasswordModal.controller.js';
+
 class SigninController {
     /**@ngInject*/
-    constructor(authService, signinService, errorService, $scope, $state) {
+    constructor(authService, signinService, errorService, $scope, $state, $uibModal) {
         this.$scope = $scope;
+        this.$uibModal = $uibModal;
         this.$state = $state;
         this.authService = authService;
         this.errorService = errorService;
@@ -44,6 +47,19 @@ class SigninController {
                     this.errorService.openErrorModal();
                 }
             });
+    }
+
+    openForgotPasswordModal() {
+        this.$uibModal.open({
+            scope: this.$scope,
+            show: true,
+            template: require('../forgotPasswordModal/forgotPasswordModal.html'),
+            controller: ForgotPasswordModalController,
+            controllerAs: 'vm',
+            size: 'lg',
+            backdrop: 'static',
+            keyboard: false
+        });
     }
 };
 
