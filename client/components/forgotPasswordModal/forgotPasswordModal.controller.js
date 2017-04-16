@@ -1,13 +1,21 @@
+import resetPasswordController from './resetPasswordModal/resetPassword.controller.js';
+
 class ForgotPasswordController {
     /**@ngInject*/
-    constructor($uibModalInstance, $http, HOST, authService, errorService) {
+    constructor($uibModal, $uibModalInstance, $localStorage, $http, HOST, authService, errorService, $rootScope) {
+        this.$rootScope = $rootScope;
+        this.$uibModal = $uibModal;
         this.$uibModalInstance = $uibModalInstance;
+        this.$localStorage = $localStorage;
         this.$http = $http;
         this.HOST = HOST;
         this.authService = authService;
         this.errorService = errorService;
         this.securityQuestionsLoaded = false;
         this.securityQuestions = {};
+        this.email = '';
+        this.securityAnswerOne = '';
+        this.securityAnswerTwo = '';
     }
 
     loadSecurityQuestions(email) {
@@ -22,7 +30,7 @@ class ForgotPasswordController {
                         ...userData
                     };
                     this.securityQuestionsLoaded = true;
-                    console.log('ud', userData);
+                    this.email = email;
                 } else {
                     this.errorService.setAuthError(userData);
                     this.errorService.openErrorModal();
@@ -35,17 +43,36 @@ class ForgotPasswordController {
     }
 
     submitAnswers() {
-        console.log(this.securityAnswerOne);
-        console.log(this.securityAnswerTwo);
-
-        // TODO: create a variable to store the current email in context
-        // Then take submitted security answers and create a route on the server
-        // to verify if the security answers are true for that email address
-        // if they are true then show a form to reset the password
-        // make user type same new password twice and then if they are the same
-        // reset the password for that email address
-        
-        //*Not completely safe because an email is not being sent*
+        this.$http.post(`${this.HOST}/users/submit-security-answers`, {
+                email: this.email,
+                securityAnswerOne: this.securityAnswerOne,
+                securityAnswerTwo: this.securityAnswerTwo
+            })
+            .then((res) => {
+                if (res.data.success) {
+                    this.closeModal();
+                    this.$rootScope.email = this.email;
+                    this.$rootScope.securityAnswerOne = this.securityAnswerOne;
+                    this.$rootScope.securityAnswerTwo = this.securityAnswerTwo;
+                    this.$uibModal.open({
+                        scope: this.$scope,
+                        show: true,
+                        template: require('./resetPasswordModal/resetPassword.html'),
+                        controller: resetPasswordController,
+                        controllerAs: 'vm',
+                        size: 'lg',
+                        keyboard: false,
+                        backdrop: 'static'
+                    });
+                } else {
+                    this.errorService.setAuthError('One or more security questions incorrect.');
+                    this.errorService.openErrorModal();
+                }
+                console.log('res', res);
+            })
+            .catch((err) => {
+                console.log('err', err);
+            });
     }
 
     forgotPasswordSubmitDisabled() {

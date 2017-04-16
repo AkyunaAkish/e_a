@@ -11,6 +11,8 @@ let updateEmailController = require('./controllers/updateEmail.server.controller
 let updateUsernameController = require('./controllers/updateUsername.server.controller.js');
 let updatePasswordController = require('./controllers/updatePassword.server.controller.js');
 let updateSecurityQuestionsAndAnswersController = require('./controllers/updateSecurityQuestionsAndAnswers.server.controller.js');
+let resetPasswordController = require('./controllers/resetPassword.server.controller.js');
+let submitSecurityAnswersController = require('./controllers/submitSecurityAnswers.server.controller.js');
 
 router.get('/retrieve-user-data/:email/:limit', retrieveUserDataController);
 router.post('/signup', signUpController);
@@ -22,5 +24,7 @@ router.post('/update-email', updateEmailController);
 router.post('/update-username', updateUsernameController);
 router.post('/update-password', updatePasswordController);
 router.post('/update-security-questions-and-answers', updateSecurityQuestionsAndAnswersController);
+router.post('/reset-password', resetPasswordController);
+router.post('/submit-security-answers', submitSecurityAnswersController);
 
 module.exports = router;
