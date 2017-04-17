@@ -1,0 +1,18 @@
+<header class='modalHeader'>
+    <h1>Delete Post</h1>
+    <button class='closeModalButton pull-right btn btn-danger' ng-click='vm.closeModal()'>X</button>
+</header>
+
+<section class='modalFormSection'>
+    <form name='form' ng-submit='vm.deletePost()' form-blur novalidate>
+        <label for='amount'>Password
+            <input class='form-control' type='password' placeholder='Password' ng-model='vm.password' required/>
+        </label>
+        <div ng-if='vm.deletingPost'>
+          <div class='loader'></div>
+        </div>
+        <button ng-if='!vm.deletingPost' class='btn btn-danger' ng-disabled='form.$invalid' type='submit'>
+            Delete Post
+        </button>
+    </form>
+</section>

@@ -10,8 +10,12 @@ let deleteCommentController = require('./controllers/deleteComment.server.contro
 let retrievePostController = require('./controllers/retrievePost.server.controller.js');
 let submitCommentController = require('./controllers/submitComment.server.controller.js');
 let likeController = require('./controllers/like.server.controller.js');
+let editPostController = require('./controllers/editPost.server.controller.js');
+let deletePostController = require('./controllers/deletePost.server.controller.js');
 
 router.post('/submit-post', submitPostController);
+router.post('/edit-post', editPostController);
+router.post('/delete-post', deletePostController);
 router.post('/submit-comment', submitCommentController);
 router.post('/delete-comment', deleteCommentController);
 router.post('/like', likeController);

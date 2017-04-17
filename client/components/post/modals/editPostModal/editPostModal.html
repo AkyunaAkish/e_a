@@ -1,0 +1,27 @@
+<header class='modalHeader'>
+    <h1>Edit Post</h1>
+    <button class='closeModalButton pull-right btn btn-danger' ng-click='vm.closeModal()'>X</button>
+</header>
+
+<section class='modalFormSection'>
+    <form name='form' ng-submit='vm.editPost()' form-blur novalidate>
+        <label for='title'>Post Title
+            <input class='form-control' type='text' placeholder='Title' ng-model='vm.post.title' required/>
+        </label>
+        <label for='title'>Post Thumbnail
+            <input class='form-control' type='text' placeholder='Thumbnail' ng-model='vm.post.thumbnail_url' required/>
+        </label>
+        <label for='content'>Post Content
+            <textarea class='form-control block edit-post-textarea center' ng-model='vm.post.content' required></textarea>
+        </label>
+        <label for='password'>Password
+            <input class='form-control' type='password' placeholder='Password' ng-model='vm.password' required/>
+        </label>
+        <div ng-if='vm.submittingPost'>
+            <div class='loader'></div>
+        </div>
+        <button ng-if='!vm.submittingPost' class='btn btn-primary' ng-disabled='form.$invalid' type='submit'>
+            Edit Post
+        </button>
+    </form>
+</section>

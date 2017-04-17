@@ -1,8 +1,13 @@
+import editPostModalController from './modals/editPostModal/editPostModal.controller.js';
+import deletePostModalController from './modals/deletePostModal/deletePostModal.controller.js';
+
 class PostController {
     /**@ngInject*/
-    constructor($http, HOST, socket, $scope, $state, errorService, authService, likeService, $sce, $localStorage) {
+    constructor($uibModal, $http, HOST, socket, $scope, $rootScope, $state, errorService, authService, likeService, $sce, $localStorage) {
+        this.$uibModal = $uibModal;
         this.$http = $http;
         this.$scope = $scope;
+        this.$rootScope = $rootScope;
         this.$sce = $sce;
         this.$localStorage = $localStorage;
         this.errorService = errorService;
@@ -155,6 +160,46 @@ class PostController {
             .catch((err) => {
                 this.socket.emit('like-event');
             });
+    }
+
+    editPost(post) {
+        this.$rootScope.postToEdit = post;
+        this.$uibModal.open({
+            scope: this.$scope,
+            show: true,
+            template: require('./modals/editPostModal/editPostModal.html'),
+            controller: editPostModalController,
+            controllerAs: 'vm',
+            size: 'lg',
+            keyboard: false,
+            backdrop: 'static'
+        });
+    }
+
+    deletePost(post) {
+        this.$rootScope.postToDelete = post;
+        this.$uibModal.open({
+            scope: this.$scope,
+            show: true,
+            template: require('./modals/deletePostModal/deletePostModal.html'),
+            controller: deletePostModalController,
+            controllerAs: 'vm',
+            size: 'lg',
+            keyboard: false,
+            backdrop: 'static'
+        });
+    }
+
+    showModifyButtons() {
+        if (this.$localStorage &&
+            this.$localStorage.session &&
+            this.$localStorage.session.user &&
+            this.$localStorage.session.user.username &&
+            this.$localStorage.session.user.username === 'Elena Akish') {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     trustHTML(src) {

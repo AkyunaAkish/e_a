@@ -2,7 +2,13 @@
     <div class='panel-body text-center'>
         <h1 class='fa fa-search inline'></h1>
         <input class='form-control inline' type='text' placeholder='Search' ng-model='vm.searchPosts'>
-        <select class='form-control inline' id='order' ng-model='vm.postOrder' ng-init='vm.postOrder = "-post_created_at"'>
+        <select class='form-control inline search-select' ng-change='vm.searchPosts = vm.searchPostsByHashTag' ng-model='vm.searchPostsByHashTag'
+            ng-init='vm.searchPosts = ""'>
+            <option value='' selected>Search by HashTag</option>
+            <option value='#LoveToSew'>#LoveToSew</option>
+            <option value='#Books'>#Books</option>
+        </select>
+        <select class='form-control inline search-select' id='order' ng-model='vm.postOrder' ng-init='vm.postOrder = "-post_created_at"'>
             <option value='-post_created_at'>Newest to Oldest</option>
             <option value='post_created_at'>Oldest to Newest</option>
         </select>

@@ -2,6 +2,14 @@
     <div class='panel panel-default post-panel'>
         <div class='panel-heading text-center'>
             <h1 ng-bind='vm.post.title'></h1>
+            <div ng-if='vm.showModifyButtons()'>
+                <button class='inline modify-button' ng-click='vm.editPost(vm.post)'>
+                    <span class='glyphicon glyphicon-pencil text-primary'></span>
+                </button>
+                <button class='inline modify-button' ng-click='vm.deletePost(vm.post)'>
+                    <span class='glyphicon glyphicon-remove text-danger'></span>
+                </button>
+            </div>
             <div class='text-center post-like-container'>
                 <button class='btn inline' ng-click='vm.like()'>
                     <span class='glyphicon glyphicon-thumbs-up inline'></span>

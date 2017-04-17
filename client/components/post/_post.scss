@@ -1,40 +1,39 @@
 @import '../../sass/utils/variables';
 @import '../../sass/utils/extendables';
-
 .post-container {
     margin-top: 10px;
     width: 100% !important;
-
+    .modify-button {
+        border: none;
+        background: none;
+        &:hover {
+            cursor: pointer;
+        }
+    }
     .post-panel {
         @extend #panel-mixin;
         padding: 0;
         width: 70%;
         margin: 0 auto;
-
         iframe,
         img {
             margin: 0 auto 10px;
             height: 300px;
         }
-
         p {
             font-size: 1.2em;
         }
-
         iframe {
             width: 70%;
             height: 400px;
         }
-
         h1,
         time {
             margin-bottom: 7px !important;
         }
-
         time {
             color: white;
         }
-
         .post-like-container {
             button {
                 background: none;
@@ -42,20 +41,16 @@
                 outline: none;
                 margin: 0;
                 padding: 0;
-                
                 span {
                     color: $skyT;
                 }
-
                 p {
                     color: white;
                 }
-
                 &:hover {
                     span {
                         color: white;
                     }
-
                     p {
                         color: $skyT;
                     }
@@ -63,7 +58,6 @@
             }
         }
     }
-
     .post-time {
         color: $sky;
     }
@@ -73,17 +67,14 @@
     @extend #panel-mixin;
     width: 70% !important;
     margin: 10px auto;
-
     .comment-time {
         font-size: 0.8em;
     }
-
     .comment {
         p {
             font-size: 1.2em;
         }
     }
-
     .delete-comment-button {
         background: none;
         border: none;
@@ -95,16 +86,13 @@
     @extend #panel-mixin;
     width: 70% !important;
     margin: 10px auto 0;
-
     textarea {
         width: 70%;
         max-width: 70%;
     }
-
     button.btn.btn-lg {
         background: $dark;
         color: $sky;
-
         &:hover {
             background: $sky;
             color: $dark;
@@ -118,11 +106,11 @@
     margin-bottom: 5px;
     color: $purple;
 }
+
 @media screen and (max-width: 850px) {
     .post-container {
         .post-panel {
             width: 90%;
-
             iframe,
             img {
                 width: 90%;
@@ -130,14 +118,11 @@
             }
         }
     }
-
     .comments-panel {
         width: 90% !important;
     }
-
     .add-comment-panel {
         width: 90% !important;
-
         textarea {
             width: 90%;
             max-width: 90%;

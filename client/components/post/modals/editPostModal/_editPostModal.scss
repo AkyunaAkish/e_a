@@ -1,0 +1,54 @@
+@import '../../../../sass/utils/variables';
+@import '../../../../sass/utils/extendables';   
+
+.modalHeader {
+    border-bottom: 1px solid lightgrey;
+    padding: 10px;
+
+    h1 {
+        display: inline;
+    }
+}
+
+.modalFormSection {
+    text-align: center;
+
+    button,
+    input,
+    label,
+    select {
+        display: block;
+        margin: 0 auto 10px;
+    }
+
+    input {
+        width: 80%;
+    }
+
+    .edit-post-textarea {
+        width: 80%;
+        resize: vertical;
+        min-height: 200px;
+    }
+}
+
+.sectionContainer {
+    text-align: center;
+
+    button {
+        margin-bottom: 10px;
+        overflow: hidden;
+
+        &:hover {
+            color: black;
+        }
+    }
+
+    form {
+        input,
+        label {
+            display: block;
+            margin: 0 auto 10px;
+        }
+    }
+}
