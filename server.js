@@ -30,6 +30,26 @@ app.all('*', (req, res, next) => {
     });
 });
 
+const nonSPArouter = express.Router();
+
+nonSPArouter.get('/', function(req,res) {
+    res.sendFile('metadata.html', {
+        root: __dirname + '/server/social_media/templates/'
+    });
+//   res.send('Serve regular HTML with metatags');
+});
+
+app.use((req, res, next) => {
+    let ua = req.headers['user-agent'];
+
+    if (/^(facebookexternalhit)|(Twitterbot)|(Pinterest)/gi.test(ua)) {
+        console.log(ua, ' is a bot');
+        nonSPArouter(req,res,next);
+    }
+
+    next();
+});
+
 app.use((req, res, next) => {
     const err = new Error('Not Found');
     err.status = 404;
