@@ -26,14 +26,15 @@ app.use('/posts', posts);
 
 app.all('*', (req, res, next) => {
     let ua = req.headers['user-agent'];
+    console.log('IN MIDDLEWARE~~~~~~~~~~~~~~~~~~~~~~~~~~~', ua);
 
     if (/^(facebookexternalhit)|(Twitterbot)|(Pinterest)/gi.test(ua)) {
-        console.log(ua, ' is a bot');
+        console.log(ua, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
         res.sendFile('metadata.html', {
             root: __dirname + '/server/social_media/templates/'
         });
     } else {
-        console.log(ua, ' is not a bot');
+        console.log(ua, ' ~~~~~~~~~~~~~~~~~~~~~~~~is not a bot');
         res.sendFile('index.html', {
             root: __dirname + '/dist/'
         });
