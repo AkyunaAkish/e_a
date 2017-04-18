@@ -32,11 +32,11 @@ app.all('*', (req, res, next) => {
 
 const nonSPArouter = express.Router();
 
-nonSPArouter.get('/', function(req,res) {
+nonSPArouter.get('/', function (req, res) {
     res.sendFile('metadata.html', {
         root: __dirname + '/server/social_media/templates/'
     });
-//   res.send('Serve regular HTML with metatags');
+    //   res.send('Serve regular HTML with metatags');
 });
 
 app.use((req, res, next) => {
@@ -44,7 +44,9 @@ app.use((req, res, next) => {
 
     if (/^(facebookexternalhit)|(Twitterbot)|(Pinterest)/gi.test(ua)) {
         console.log(ua, ' is a bot');
-        nonSPArouter(req,res,next);
+        nonSPArouter(req, res, next);
+    } else {
+        console.log(ua, ' is not a bot');
     }
 
     next();
