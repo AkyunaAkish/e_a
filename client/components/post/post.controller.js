@@ -20,11 +20,11 @@ class PostController {
         this.session = this.authService.getSession();
         this.comments = [];
         this.hasSession = !!(this.$localStorage.session &&
-            this.$localStorage.session.token &&
-            this.$localStorage.session.user &&
-            this.$localStorage.session.user.email &&
-            this.$localStorage.session.user.username &&
-            this.$localStorage.session.user.user_created_at);
+                             this.$localStorage.session.token &&
+                             this.$localStorage.session.user &&
+                             this.$localStorage.session.user.email &&
+                             this.$localStorage.session.user.username &&
+                             this.$localStorage.session.user.user_created_at);
 
         this.isAdmin = !!(this.hasSession && this.$localStorage.session.user.username === 'Elena Akish');
 

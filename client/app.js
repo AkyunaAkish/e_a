@@ -6,6 +6,8 @@ import 'angular-moment';
 import 'ngstorage';
 import io from 'socket.io-client';
 
+import appController from './utils/app.controller.js';
+
 import layoutDirective from './components/layout/layout.directive.js';
 import navbarDirective from './components/navbar/navbar.directive.js';
 import postsDirective from './components/posts/posts.directive.js';
@@ -61,5 +63,6 @@ angular.module('ElenaAkish', [
     .directive('signupDirective', signupDirective)
     .directive('signinDirective', signinDirective)
     .directive('createPostDirective', createPostDirective)
+    .controller('appController', appController)
     .config(Router)
     .run(stateChange);
