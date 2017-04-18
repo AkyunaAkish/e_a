@@ -25,31 +25,19 @@ app.use('/users', users);
 app.use('/posts', posts);
 
 app.all('*', (req, res, next) => {
-    res.sendFile('index.html', {
-        root: __dirname + '/dist/'
-    });
-});
-
-const nonSPArouter = express.Router();
-
-nonSPArouter.get('/', function (req, res) {
-    res.sendFile('metadata.html', {
-        root: __dirname + '/server/social_media/templates/'
-    });
-    //   res.send('Serve regular HTML with metatags');
-});
-
-app.use((req, res, next) => {
     let ua = req.headers['user-agent'];
 
     if (/^(facebookexternalhit)|(Twitterbot)|(Pinterest)/gi.test(ua)) {
         console.log(ua, ' is a bot');
-        nonSPArouter(req, res, next);
+        res.sendFile('metadata.html', {
+            root: __dirname + '/server/social_media/templates/'
+        });
     } else {
         console.log(ua, ' is not a bot');
+        res.sendFile('index.html', {
+            root: __dirname + '/dist/'
+        });
     }
-
-    next();
 });
 
 app.use((req, res, next) => {
