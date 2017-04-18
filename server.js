@@ -24,10 +24,16 @@ app.all('*', (req, res, next) => {
     let ua = req.headers['user-agent'];
     console.log('IN MIDDLEWARE~~~~~~~~~~~~~~~~~~~~~~~~~~~', ua);
 
-    if (/^(facebookexternalhit)|(Twitterbot)|(Pinterest)/gi.test(ua)) {
+    if (/^(facebookexternalhit)|(Pinterest)/gi.test(ua)) {
         console.log(ua, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
         bot = true;
-        res.sendFile('metadata.html', {
+        res.sendFile('facebook.html', {
+            root: __dirname + '/server/social_media/templates/'
+        });
+    } else if (/^(Twitterbot)/gi.test(ua)) {
+        console.log(ua, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
+        bot = true;
+        res.sendFile('twitter.html', {
             root: __dirname + '/server/social_media/templates/'
         });
     } else {
