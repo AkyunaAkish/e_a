@@ -24,24 +24,13 @@ app.use(bodyParser.urlencoded({
 app.all('*', (req, res, next) => {
     let ua = req.headers['user-agent'];
 
-    if (/^(facebookexternalhit)|(Pinterest)/gi.test(ua)) {
-        console.log(ua, req.params, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
+    if (/^(facebookexternalhit)|(Twitterbot)|(Pinterest)/gi.test(ua)) {
         bot = true;
         generateSocialMediaTemplate(req, res, 'facebook')
             .then((template) => {
                 res.send(template);
             })
-            .catch(() => {
-                res.end();
-            });
-    } else if (/^(Twitterbot)/gi.test(ua)) {
-        console.log(ua, req.params, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
-        bot = true;
-        generateSocialMediaTemplate(req, res, 'twitter')
-            .then((template) => {
-                res.send(template);
-            })
-            .catch(() => {
+            .catch((err) => {
                 res.end();
             });
     } else {
@@ -58,7 +47,6 @@ if (!bot) {
     app.use('/posts', posts);
 
     app.all('*', (req, res, next) => {
-        console.log(' ~~~~~~~~~~~~~~~~~~~~~~~~is not a bot');
         res.sendFile('index.html', {
             root: __dirname + '/dist/'
         });
