@@ -25,13 +25,13 @@ app.all('*', (req, res, next) => {
     console.log('IN MIDDLEWARE~~~~~~~~~~~~~~~~~~~~~~~~~~~', ua);
 
     if (/^(facebookexternalhit)|(Pinterest)/gi.test(ua)) {
-        console.log(ua, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
+        console.log(ua, req.params, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
         bot = true;
         res.sendFile('facebook.html', {
             root: __dirname + '/server/social_media/templates/'
         });
     } else if (/^(Twitterbot)/gi.test(ua)) {
-        console.log(ua, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
+        console.log(ua, req.params, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
         bot = true;
         res.sendFile('twitter.html', {
             root: __dirname + '/server/social_media/templates/'
