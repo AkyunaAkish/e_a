@@ -2,7 +2,7 @@ const knex = require('../db_config/knex');
 const _ = require('lodash');
 const url = require('url');
 
-module.exports = (req, res, type) => {\
+module.exports = (req, res, type) => {
     return new Promise((resolve, reject) => {
         let hasParams = Object.keys(req.params).length > 0;
         let title = "Elena Akish's Blog";
