@@ -23,28 +23,19 @@ app.use(bodyParser.urlencoded({
 
 app.all('*', (req, res, next) => {
     let ua = req.headers['user-agent'];
-    console.log('IN MIDDLEWARE~~~~~~~~~~~~~~~~~~~~~~~~~~~', ua);
 
     if (/^(facebookexternalhit)|(Pinterest)/gi.test(ua)) {
         console.log(ua, req.params, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
         bot = true;
-
         res.send(generateSocialMediaTemplate(req, res, 'facebook'));
-        // res.sendFile('facebook.html', {
-        //     root: __dirname + '/server/social_media/templates/'
-        // });
     } else if (/^(Twitterbot)/gi.test(ua)) {
         console.log(ua, req.params, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
         bot = true;
         res.send(generateSocialMediaTemplate(req, res, 'twitter'));
-        // res.sendFile('twitter.html', {
-        //     root: __dirname + '/server/social_media/templates/'
-        // });
     } else {
         bot = false;
+        next();
     }
-
-    next();
 });
 
 if (!bot) {
