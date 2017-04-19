@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const cors = require('cors');
+const generateSocialMediaTemplate = require('./server/helpers/generateSocialMediaTemplate.js');
 
 const users = require('./server/components/users/users.js');
 const posts = require('./server/components/posts/posts.js');
@@ -27,15 +28,18 @@ app.all('*', (req, res, next) => {
     if (/^(facebookexternalhit)|(Pinterest)/gi.test(ua)) {
         console.log(ua, req.params, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
         bot = true;
-        res.sendFile('facebook.html', {
-            root: __dirname + '/server/social_media/templates/'
-        });
+
+        res.send(generateSocialMediaTemplate(req, res, 'facebook'));
+        // res.sendFile('facebook.html', {
+        //     root: __dirname + '/server/social_media/templates/'
+        // });
     } else if (/^(Twitterbot)/gi.test(ua)) {
         console.log(ua, req.params, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
         bot = true;
-        res.sendFile('twitter.html', {
-            root: __dirname + '/server/social_media/templates/'
-        });
+        res.send(generateSocialMediaTemplate(req, res, 'twitter'));
+        // res.sendFile('twitter.html', {
+        //     root: __dirname + '/server/social_media/templates/'
+        // });
     } else {
         bot = false;
     }
