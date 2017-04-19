@@ -18,8 +18,8 @@ module.exports = (req, res, type) => {
 
         if (hasParams) {
             _.forOwn(req.params, (value, key) => {
-                let valSplit = obj[key].split('/');
-                let hasPosts = /posts/gi.test(obj[key]);
+                let valSplit = value.split('/');
+                let hasPosts = /posts/gi.test(value);
 
                 if (hasPosts) {
                     _.each(valSplit, (item) => {
