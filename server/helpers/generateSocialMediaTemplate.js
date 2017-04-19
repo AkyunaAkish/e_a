@@ -8,7 +8,7 @@ module.exports = (req, res, type) => {
         let title = "Elena Akish's Blog";
         let image = 'https://docs.google.com/uc?id=0Bw6Wv889sj3vUk9ORXFiZW5mZG8';
         let site = 'http://www.elenaakish.com';
-        let url = url.format({
+        let reqURL = url.format({
             protocol: req.protocol,
             host: req.get('host'),
             pathname: req.originalUrl,
@@ -52,9 +52,9 @@ module.exports = (req, res, type) => {
                                 <meta http-equiv="X-UA-Compatible" content="ie=edge">
                                 <meta property='og:type' content='website' />
                                 <meta content="${title}" property="og:title">
-                                <meta property="og:url" content="${url}" />
+                                <meta property="og:url" content="${reqURL}" />
                                 <meta content="${image}" property="og:image">
-                                <meta content="${url}" name="twitter:site">
+                                <meta content="${reqURL}" name="twitter:site">
                                 <meta content="summary" name="twitter:card">
                                 <meta content="${title}" name="twitter:title">
                                 <meta content="${image}" name="twitter:image:src">
@@ -74,9 +74,9 @@ module.exports = (req, res, type) => {
                         <meta http-equiv="X-UA-Compatible" content="ie=edge">
                         <meta property='og:type' content='website' />
                         <meta content="${title}" property="og:title">
-                        <meta property="og:url" content="${url}" />
+                        <meta property="og:url" content="${reqURLurl}" />
                         <meta content="${image}" property="og:image">
-                        <meta content="${url}" name="twitter:site">
+                        <meta content="${reqURL}" name="twitter:site">
                         <meta content="summary" name="twitter:card">
                         <meta content="${title}" name="twitter:title">
                         <meta content="${image}" name="twitter:image:src">
