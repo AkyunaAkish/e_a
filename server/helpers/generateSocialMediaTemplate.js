@@ -57,6 +57,7 @@ module.exports = (req, res, type) => {
                                 <meta content="${reqURL}" name="twitter:site">
                                 <meta content="summary" name="twitter:card">
                                 <meta content="${title}" name="twitter:title">
+                                <meta content="Come see what I'm up to" name="twitter:description">
                                 <meta content="${image}" name="twitter:image:src">
                                 <title>Elena Akish's Blog</title>
                              </head>
