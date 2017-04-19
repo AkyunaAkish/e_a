@@ -27,11 +27,23 @@ app.all('*', (req, res, next) => {
     if (/^(facebookexternalhit)|(Pinterest)/gi.test(ua)) {
         console.log(ua, req.params, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
         bot = true;
-        res.send(generateSocialMediaTemplate(req, res, 'facebook'));
+        generateSocialMediaTemplate(req, res, 'facebook')
+            .then((template) => {
+                res.send(template);
+            })
+            .catch(() => {
+                res.end();
+            });
     } else if (/^(Twitterbot)/gi.test(ua)) {
         console.log(ua, req.params, ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~is a bot');
         bot = true;
-        res.send(generateSocialMediaTemplate(req, res, 'twitter'));
+        generateSocialMediaTemplate(req, res, 'twitter')
+            .then((template) => {
+                res.send(template);
+            })
+            .catch(() => {
+                res.end();
+            });
     } else {
         bot = false;
         next();
