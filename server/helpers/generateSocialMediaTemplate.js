@@ -66,24 +66,25 @@ module.exports = (req, res, type) => {
                 });
         } else {
             resolve(`<!DOCTYPE html>
-                     <html lang="en">
+                    <html lang="en">
                      <head>
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                         <meta http-equiv="X-UA-Compatible" content="ie=edge">
                         <meta property='og:type' content='website' />
                         <meta content="${title}" property="og:title">
-                        <meta property="og:url" content="${reqURLurl}" />
+                        <meta property="og:url" content="${reqURL}" />
                         <meta content="${image}" property="og:image">
                         <meta content="${reqURL}" name="twitter:site">
                         <meta content="summary" name="twitter:card">
                         <meta content="${title}" name="twitter:title">
+                        <meta content="Come see what I'm up to" name="twitter:description">
                         <meta content="${image}" name="twitter:image:src">
                         <title>Elena Akish's Blog</title>
-                        </head>
-                        <body>
-                            
-                        </body>
+                     </head>
+                     <body>
+                    
+                     </body>
                     </html>`);
         }
     });

@@ -254,7 +254,7 @@ class CreatePostController {
         } else if (this.post.thumbnailGoogleDrive) {
             return `https://docs.google.com/uc?id=${this.post.thumbnailGoogleDrive}`;
         } else {
-            return '/images/ElenaAkishLotus.png';
+            return 'https://docs.google.com/uc?id=0Bw6Wv889sj3vUk9ORXFiZW5mZG8';
         }
     }
 };

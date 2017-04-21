@@ -81,13 +81,18 @@
             text-decoration: none;
         }
     }
-
     img {
-        height: 200px;
+        height: 300px;
+        width: 60% !important;
     }
 }
 
 @media screen and (max-width: 850px) {
+    .posts-container {
+        img {
+            height: 200px;
+        }
+    }
     .search-panel {
         .panel-body {
             h1 {
