@@ -83,7 +83,7 @@
     }
     img {
         height: 300px;
-        width: 60% !important;
+        max-width: 600px !important;
     }
 }
 
@@ -91,6 +91,7 @@
     .posts-container {
         img {
             height: 200px;
+            max-width: 400px !important;
         }
     }
     .search-panel {
