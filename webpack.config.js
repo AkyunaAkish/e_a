@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 const ENV = process.env.NODE_ENV;
 const DEV = ENV === 'development';
+const Notifier = require('webpack-notifier');
+const ProgressBar = require('progress-bar-webpack-plugin');
 
 const config = {
     entry: [
@@ -13,6 +15,10 @@ const config = {
     },
     devtool: DEV ? 'source-map' : null,
     plugins: [
+        new ProgressBar(),
+        new Notifier({
+            alwaysNotify: true
+        }),
         new ngAnnotatePlugin({
             add: true
         })

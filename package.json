@@ -1,24 +1,24 @@
 {
-  "name": "spacecadevs",
+  "name": "ea",
   "version": "1.0.0",
-  "description": "Collective Tech",
+  "description": "blog",
   "main": "./bin/www",
   "scripts": {
     "start": "NODE_ENV=production node ./bin/www",
     "dev": "NODE_ENV=development node_modules/.bin/webpack-dev-server --inline --hot",
-    "build": "NODE_ENV=production node_modules/.bin/webpack"
+    "heroku-postbuild": "NODE_ENV=production node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DownlinkDesign/spacecadevs.git"
+    "url": "git+https://github.com/AkyunaAkish/e_a.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DownlinkDesign/spacecadevs/issues"
+    "url": "https://github.com/AkyunaAkish/e_a/issues"
   },
-  "homepage": "https://github.com/DownlinkDesign/spacecadevs#readme",
+  "homepage": "https://github.com/AkyunaAkish/e_a#readme",
   "devDependencies": {
     "angular": "^1.6.1",
     "angular-bootstrap-npm": "^0.14.3",
@@ -34,11 +34,13 @@
     "ng-annotate-webpack-plugin": "^0.1.3",
     "ngstorage": "^0.3.11",
     "node-sass": "^4.1.1",
+    "progress-bar-webpack-plugin": "^1.9.3",
     "raw-loader": "^0.5.1",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "webpack-notifier": "^1.5.0"
   },
   "dependencies": {
     "bcrypt": "^1.0.1",
