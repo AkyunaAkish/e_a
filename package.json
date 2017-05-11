@@ -31,16 +31,12 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-stage-1": "^6.16.0",
     "css-loader": "^0.26.1",
-    "ng-annotate-webpack-plugin": "^0.1.3",
     "ngstorage": "^0.3.11",
     "node-sass": "^4.1.1",
-    "progress-bar-webpack-plugin": "^1.9.3",
     "raw-loader": "^0.5.1",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2",
-    "webpack-notifier": "^1.5.0"
+    "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
     "bcrypt": "^1.0.1",
@@ -55,7 +51,11 @@
     "knex": "^0.12.6",
     "lodash": "^4.17.4",
     "morgan": "^1.7.0",
+    "ng-annotate-webpack-plugin": "^0.2.1-pre",
     "pg": "^6.1.2",
-    "socket.io": "^1.7.2"
+    "progress-bar-webpack-plugin": "^1.9.3",
+    "socket.io": "^1.7.2",
+    "webpack": "^1.15.0",
+    "webpack-notifier": "^1.5.0"
   }
 }
