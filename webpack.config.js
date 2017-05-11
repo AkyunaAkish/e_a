@@ -13,7 +13,7 @@ const config = {
         path: `${__dirname}/dist/`,
         filename: 'bundle.js'
     },
-    devtool: DEV ? 'source-map' : null,
+    devtool: DEV ? 'source-map' : false,
     plugins: [
         new ProgressBar(),
         new Notifier({
