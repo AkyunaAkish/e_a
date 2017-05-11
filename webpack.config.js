@@ -24,7 +24,7 @@ const config = {
         })
     ],
     module: {
-        loaders: [{
+        rules: [{
             test: /\.js/,
             exclude: /(node_modules | bower_components)/,
             loader: 'babel-loader',
@@ -33,16 +33,16 @@ const config = {
             }
         }, {
             test: /\.s?css/,
-            loaders: ['style', 'css', 'sass'],
+            use: ['style-loader', 'css-loader', 'sass-loader'],
             exclude: /(node_modules | bower_components)/,
         }, {
             test: /\.html/,
-            loader: 'raw-loader',
+            use: 'raw-loader',
             exclude: /node_modules/
         }]
     },
     resolve: {
-        extensions: ['', '.js']
+        extensions: ['.js']
     },
     devServer: {
         historyApiFallback: true,
