@@ -17,7 +17,7 @@
 
 <div class='container-fluid posts-container'>
     <div class='row-fluid'>
-        <div class='col-lg-4' dir-paginate='post in vm.posts | filter: vm.searchPosts | orderBy: vm.postOrder | itemsPerPage: 9'
+        <div class='col-lg-4 post-repeater' dir-paginate='post in vm.posts | filter: vm.searchPosts | orderBy: vm.postOrder | itemsPerPage: 9'
             pagination-id='postsPaginate'>
             <a ng-href='/posts/{{post.id}}'>
                 <div class='item'>
