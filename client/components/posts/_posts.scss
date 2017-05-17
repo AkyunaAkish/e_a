@@ -88,15 +88,14 @@
     }
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 600px) {
     .posts-container {
         img {
+            // max-height: 200px;
+            // max-width: 80% !important;
+            height: auto;
+            max-width: 90% !important;
             max-height: 200px;
-            max-width: 80% !important;
-        }
-        .post-repeater {
-            display: block !important;
-            width: 90% !important;
         }
     }
     .search-panel {
